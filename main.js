@@ -15,14 +15,14 @@ axios.get(API)
 .then ((res)=> {quiz = res.data.results
     // showQuestion(quiz)
     quiz.map(quiz => {
+//*crear vaiables para acceder mas facilmente al contenido. 
         correctAnswer = quiz.correct_answer
         incorrectAnswers = quiz.incorrect_answers
     // console.log(correctAnswer); 
         
     });
     console.log("log en axios=", quiz)
-    console.log(correctAnswer)
-    console.log(incorrectAnswers);;
+    console.log("trayend respuestas=", incorrectAnswers,correctAnswer);;
 })
 .catch((err)=>console.error(err))
 
@@ -30,6 +30,10 @@ axios.get(API)
 let currentQuestionIndex;
 const startGame = (()=>{
     console.log("funciono!");
+    console.log("respuesta incorrecta", incorrectAnswers)
+    console.log("correcta", correctAnswer); 
+
+
     startButton.classList.add("hide");
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove("hide");
@@ -39,20 +43,21 @@ const startGame = (()=>{
 startButton.addEventListener("click", startGame);
 
 const showQuestion = ((question)=>{
-    console.log("acceder a una pregunta=", quiz[1]);  //! quiz es el questions
-    questionElement.innerText = `holi ${question.question}`;
-    let allAnswers = [correctAnswer, ...incorrectAnswers];
-    allAnswers.sort(() => Math.random() - 0.5);
+console.log("acceder a una pregunta=", quiz[1]);  
+questionElement.innerText = `holi ${question.question}`;
+//* problema, la respuesta correcta siempre esta en el mismo lugar, he reado un array para unirlas, el problema sera asignar el valor de correcta. concatener las variables, unsar la funcion math.random para darle un orden al azar
+
+let allAnswers = [correctAnswer, ...incorrectAnswers];
+allAnswers.sort(() => Math.random() - 0.5);
+console.log("allanswer", allAnswers);
+
     correctAnswer = quiz.correct_answer
     incorrectAnswers = quiz.incorrect_answers
 
     allAnswers.forEach(answer => {
-    // console.log(correctAnswer); 
     const button = document.createElement("button");
-    button.innerText = `respu ${answer}`;
+    button.innerText = `${answer}`;
 
-    console.log("respuesta correcta", correctAnswer)
-    console.log("respuesta incorrecta", incorrectAnswers)
     ;
 
     // if (answer.correct) {
