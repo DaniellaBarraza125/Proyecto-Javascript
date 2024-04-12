@@ -3,6 +3,7 @@ const nextButton = document.getElementById("next-btn");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
+const answerButton = document.getElementsByClassName("answerButton");
 
 
 
@@ -58,6 +59,7 @@ const incorrectAnswers = question.incorrect_answers;
     allAnswers.forEach(answer => {
     const button = document.createElement("button");
     button.innerText = answer;
+    button.innerText = answer;button.classList.add("answerButton")
     button.dataset.correct = false;    
     answerButtonsElement.appendChild(button);
 });
@@ -71,6 +73,7 @@ const checkButtons =(answerButtons, correctAnswer)=>{
     answerButtons.forEach(button => {
         if (button.innerText === correctAnswer) {
             console.log("Botón correcto: ", button.innerText);
+            button.dataset.correct = true;
         }
     });
 }
