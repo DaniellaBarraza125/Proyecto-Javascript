@@ -4,11 +4,11 @@ const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 
+
+
 const API = "https://opentdb.com/api.php?amount=10&category=20&type=multiple";
 
 let quiz = [];
-let correctAnswer= [];
-let incorrectAnswers;
 let answer = [];
 
 axios.get(API)
@@ -29,9 +29,9 @@ axios.get(API)
 
 let currentQuestionIndex;
 const startGame = (()=>{
-    console.log("funciono!");
-    console.log("respuesta incorrecta", incorrectAnswers)
-    console.log("correcta", correctAnswer); 
+    // console.log("funciono!");
+    // console.log("respuesta incorrecta", incorrectAnswers)
+    // console.log("correcta", correctAnswer); 
 
 
     startButton.classList.add("hide");
@@ -39,6 +39,7 @@ const startGame = (()=>{
     questionContainerElement.classList.remove("hide");
     setNextQuestion();
 })
+
 // startGame();
 startButton.addEventListener("click", startGame);
 
@@ -46,28 +47,33 @@ const showQuestion = ((question)=>{
 console.log("acceder a una pregunta=", quiz[1]);  
 questionElement.innerText = `holi ${question.question}`;
 //* problema, la respuesta correcta siempre esta en el mismo lugar, he reado un array para unirlas, el problema sera asignar el valor de correcta. concatener las variables, unsar la funcion math.random para darle un orden al azar
+const correctAnswer = question.correct_answer;
+const incorrectAnswers = question.incorrect_answers;
 
-let allAnswers = [correctAnswer, ...incorrectAnswers];
-allAnswers.sort(() => Math.random() - 0.5);
-console.log("allanswer", allAnswers);
+    let allAnswers = [correctAnswer, ...incorrectAnswers];
+    allAnswers.sort(() => Math.random() - 0.5);
+    console.log("allanswer", allAnswers);
 
-    correctAnswer = quiz.correct_answer
-    incorrectAnswers = quiz.incorrect_answers
 
     allAnswers.forEach(answer => {
     const button = document.createElement("button");
-    button.innerText = `${answer}`;
-
-    ;
-
-    // if (answer.correct) {
-    // button.dataset.correct = true;
-    // }
-    // button.addEventListener("click", selectAnswer);
+    button.innerText = answer;
+    button.dataset.correct = false;    
     answerButtonsElement.appendChild(button);
-})
-})
+});
+// no entiendia porque no funcionaba check buttons y chatGPT me dio la opcion de poner answerButtonsElement.querySelectorAll("button") como argumento de la funcion. asi se inicia correctamnte
 
+
+    checkButtons(answerButtonsElement.querySelectorAll("button"),correctAnswer);
+
+})
+const checkButtons =(answerButtons, correctAnswer)=>{
+    answerButtons.forEach(button => {
+        if (button.innerText === correctAnswer) {
+            console.log("Botón correcto: ", button.innerText);
+        }
+    });
+}
 
 function setNextQuestion() {
     // resetState();
