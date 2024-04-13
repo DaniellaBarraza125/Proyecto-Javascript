@@ -8,16 +8,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="question-container" class="hide">
-    <div id="question">Question</div>
 
-    <div id="answer-buttons"></div>
+    <nav>
+        <span id="homeNav">home</span>
+        <span id="quizNav">quiz</span>
+        <span id="resultsNav">results</span>
+    </nav>
+
+<div id="homeDiv" class="hide">
+    <!-- <div class="hero"> -->
+        <h1> friends</h1>
+        <p> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</p>
+    <!-- </div> -->
+
+</div>
+<div id="quizDiv" class="hide">
+    <h1>quiz</h1>
+
+    <div id="question-container">
+        <div id="question">Question</div>
+
+        <div id="answer-buttons"></div>
     </div>
     <div class="controls">
-    <button id="start-btn">Start</button>
-    <button id="next-btn" class="hide">Next</button>
+        <button id="start-btn">Start</button>
+        <button id="next-btn" class="hide">Next</button>
     </div>
+</div>
+<div id="resultsDiv" class="hide">
+    <h1>results</h1>
+
+</div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js" ></script>
+
 </body>
 </html>
