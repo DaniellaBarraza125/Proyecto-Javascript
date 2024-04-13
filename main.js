@@ -11,7 +11,11 @@ const resultsNav = document.getElementById("resultsNav")
 const homeDiv = document.getElementById("homeDiv")
 const quizDiv = document.getElementById("quizDiv")
 const resultsDiv = document.getElementById ("resultsDiv")
+const API = "https://mocki.io/v1/e97adce9-e6cb-4ad9-8f31-0e3528b59e43";
 
+let quiz = [];
+let answer = [];
+let score = 0;
 
 // console.log(resultsNav, homeNav, quizNav);
 
@@ -44,12 +48,6 @@ const showResults =()=>{
 homeNav.addEventListener("click",showHome)
 quizNav.addEventListener("click",showQuiz)
 resultsNav.addEventListener("click",showResults)
-
-
-const API = "https://mocki.io/v1/e97adce9-e6cb-4ad9-8f31-0e3528b59e43";
-
-let quiz = [];
-let answer = [];
 
 axios.get(API)
 .then ((res)=> {quiz = res.data
@@ -105,11 +103,11 @@ allAnswers.forEach(answer => {
     button.dataset.correct = answer === correctAnswer;
     button.addEventListener("click", selectAnswer);
     
-    console.log("Botón correcto: ", correctAnswer);
-    console.log("current index ",currentQuestionIndex);
-
     questionElement.appendChild(button);
 });
+
+console.log("Botón correcto: ", correctAnswer);
+// console.log("current index ",currentQuestionIndex);
 // no entiendia porque no funcionaba check buttons y chatGPT me dio la opcion de poner answerButtonsElement.querySelectorAll("button") como argumento de la funcion. asi se inicia correctamnte
 
 
@@ -132,20 +130,40 @@ const setNextQuestion = (()=>{
     showQuestion(quiz[currentQuestionIndex]);
 })
 
-const selectAnswer = (() => {
-    console.log(quiz.length);
-    console.log(currentQuestionIndex);
-    if (currentQuestionIndex == quiz.length - 1) {
+
+const selectAnswer = () => {
+    const selectedButton = event.target;
+    countScore(selectedButton); 
+        Array.from(questionElement.children).forEach((button) => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        } else {
+            button.classList.add("wrong");
+        }showButtons();
+    }
+);
+};
+const showButtons  = (()=>{
+    if (currentQuestionIndex === quiz.length -1) {
         startButton.innerText = "Restart";
         startButton.classList.remove("hide");
         nextButton.classList.add("hide");
-    } else {
-        // Si no quedan más preguntas, mostrar el botón "Start" en su lugar
         
+    } else {
+        // console.log("ey why?");
         nextButton.classList.remove("hide");
-
     }
+    console.log( "holaa");
 });
+
+
+const countScore=((element)=>{
+    if (element.dataset.correct === "true") {
+        score += 1;
+        console.log("Score:", score);
+    }
+})
+
 
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++;
