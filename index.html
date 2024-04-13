@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
-    
+    <title>Friends trivia</title>
+    <link rel="shortcut icon" href="/assets/Friends Frame.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,33 +17,38 @@
         <span id="quizNav">Quiz</span>
         <span id="resultsNav">Results</span>
     </nav>
-<div class="homeDivContainer">
+<div id="homeDiv" class="hide">
+    <div class="homeDivContainer">
+        <div class="flex">
 
-    <div id="homeDiv" class="hide">
-        <!-- <div class="hero"> -->
             <h1> friends</h1>
             <p class="homeText"> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</p>
-        <!-- </div> -->
-
+        </div>
     </div>
 </div>
 
 <div id="quizDiv" class="hide">
+    <div id="question-container" class="hide">
+        <div id="quizInfoDiv">
 
-    <div id="question-container">
+            <div id="score">score</div>
+            <h2 id="infoDivTitle">The One with the trivia</h2>
+            <img src="" alt="" id="questionPicture">
+        </div>
         <div id="question"></div>
-        <button id="results-btn" class="hide">Results</button>
-
-
+        
+            <button id="results-btn" class="hide">Results</button>
         <div id="answer-buttons"></div>
-    </div>
-    <div class="controls">
-        <button id="start-btn">Start</button>
-        <button id="next-btn" class="hide">Next</button>
+
+        <div class="controls">
+            <button id="start-btn">Start</button>
+            <button id="next-btn" class="hide">Next</button>
+        </div>
     </div>
 </div>
 <div id="resultsDiv" class="hide">
-    <h1>results</h1>
+    results
+
 
 </div>
 

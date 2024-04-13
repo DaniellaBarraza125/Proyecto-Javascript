@@ -5,6 +5,7 @@ const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const answerButton = document.getElementsByClassName("answerButton");
 const resultsButton = document.getElementById("results-btn")
+const questionContainer =document.getElementById("question-container")
 const restart = document.getElementById("restart")
 
 const homeNav = document.getElementById("homeNav")
@@ -22,34 +23,36 @@ let score = 0;
 // console.log(resultsNav, homeNav, quizNav);
 
 const hideViews = (()=>{
-    // console.log("working booetch");
+    console.log("working booetch");
     homeDiv.classList.add("hide")
-    quizDiv.classList.add("hide")
+    questionContainer.classList.add("hide")
     resultsDiv.classList.add("hide")
 })
+hideViews();
+
 const showHome =()=>{
-    hideViews()
-    // console.log("working");
-    homeDiv.classList.remove("hide")
+    hideViews();
+    homeDiv.classList.remove("hide");
+    console.log("working");
 }
 
 const showQuiz =()=>{
-    hideViews()
-    // console.log("working");
-
-    quizDiv.classList.remove("hide")
+    hideViews();
+    questionContainer.classList.remove("hide");
+    console.log("working");
 }
 
 const showResults =()=>{
-    hideViews()
-    // console.log("working");
-
-    resultsDiv.classList.remove("hide")
+    hideViews();
+    resultsDiv.classList.remove("hide");
+    console.log("working");
 }
+
 
 homeNav.addEventListener("click",showHome)
 quizNav.addEventListener("click",showQuiz)
 resultsNav.addEventListener("click",showResults)
+
 
 axios.get(API)
 .then ((res)=> {quiz = res.data
@@ -90,7 +93,7 @@ const showQuestion = ((question)=>{
 // console.log("acceder a una pregunta=", quiz[1]);  
 questionElement.innerText= "";
 questionElement.innerText = question.question;
-//* problema, la respuesta correcta siempre esta en el mismo lugar, he reado un array para unirlas, el problema sera asignar el valor de correcta. concatener las variables, unsar la funcion math.random para darle un orden al azar
+//posicion al azar
 const correctAnswer = question.correct_answer;
 const incorrectAnswers = question.incorrect_answers;
 
@@ -112,27 +115,14 @@ allAnswers.forEach(answer => {
 
 console.log("Botón correcto: ", correctAnswer);
 console.log("current index ",currentQuestionIndex);
-// no entiendia porque no funcionaba check buttons y chatGPT me dio la opcion de poner answerButtonsElement.querySelectorAll("button") como argumento de la funcion. asi se inicia correctamnte
-
-
-    // checkButtons(answerButtonsElement.querySelectorAll("button"),correctAnswer);
-
 })
 
-//genere esta funcion porque no se asignaba inmediatamente el valor correcto o falso pero ya no es necesaria
-// const checkButtons =(answerButtons, correctAnswer)=>{
-//     answerButtons.forEach(button => {
-//         if (button.innerText === correctAnswer) {
-//             console.log("Botón correcto: ", button.innerText);
-//             button.dataset.correct = true;
-//         }
-//     });
-// }
+
 const setNextQuestion = (()=>{
     selectAnswer()
     showQuestion(quiz[currentQuestionIndex]);
 })
-//!sube?
+
 
 const selectAnswer = () => {
     const selectedButton = event.target;
@@ -148,12 +138,13 @@ const selectAnswer = () => {
     );
 };
 const showButtons  = (()=>{    
-    if (quiz.length > currentQuestionIndex + 1) {
-        nextButton.classList.remove("hide");
-      } else {
-        startButton.innerText = "Restart";
-        startButton.classList.remove("hide");
-      }
+    if (quiz.length+1  > currentQuestionIndex + 1) {
+    nextButton.classList.remove("hide");
+    } else {
+    resultsButton.classList.remove("hide")
+    startButton.innerText = "Restart";
+    startButton.classList.remove("hide");
+    }
 });
 
 
@@ -168,15 +159,27 @@ function resetState() {
     answerButtonsElement.innerHTML = "";
 }
 
-
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++;
     setNextQuestion();
     });
 
-
-    
-
+const results =(()=>{
+    if (score == 9) {console.log("yeeeeii");
+    }
+    else {
+        console.log("owww");
+    }
+})
+//genere esta funcion porque no se asignaba inmediatamente el valor correcto o falso pero ya no es necesaria
+// const checkButtons =(answerButtons, correctAnswer)=>{
+//     answerButtons.forEach(button => {
+//         if (button.innerText === correctAnswer) {
+//             console.log("Botón correcto: ", button.innerText);
+//             button.dataset.correct = true;
+//         }
+//     });
+// }
 
 
 

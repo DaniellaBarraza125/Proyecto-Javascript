@@ -1,4 +1,5 @@
-*{margin: 0;
+
+  *{margin: 0;
 padding: 0;
 box-sizing: border-box;
 text-decoration: none;
@@ -36,20 +37,34 @@ h1{
     padding: 5%;
 }
 .homeDivContainer{
-    width: 100%;
     display: flex;
     justify-content: center;
 }
-#homeDiv {
-    justify-self: center;
+.flex{
+    max-width: 800px;
     width: 80vw;
-    padding: 5%;
 }
+
 .homeText{
     padding: 5%;
 }
+
+/* quizsession */
+#infoDivTitle{
+    text-align: center;
+    padding: 5%;
+}
+#score{
+    padding: 5%;
+    text-align: center;
+}
 #quizDiv{
-    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#question-container{
+    max-width: 800px;
+    width: 80vw;
     padding: 5%;
 }
 
@@ -58,7 +73,6 @@ h1{
 }
 #answer-buttons{
     padding: 2%;
-    width: 100%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
