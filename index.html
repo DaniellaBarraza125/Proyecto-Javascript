@@ -10,23 +10,27 @@
 <body>
 
     <nav>
-        <span id="homeNav">home</span>
-        <span id="quizNav">quiz</span>
-        <span id="resultsNav">results</span>
+        <span id="homeNav">Home</span>
+        <span id="quizNav">Quiz</span>
+        <span id="resultsNav">Results</span>
     </nav>
+<div class="homeDivContainer">
 
-<div id="homeDiv" class="hide">
-    <!-- <div class="hero"> -->
-        <h1> friends</h1>
-        <p> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</p>
-    <!-- </div> -->
+    <div id="homeDiv" class="hide">
+        <!-- <div class="hero"> -->
+            <h1> friends</h1>
+            <p class="homeText"> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</p>
+        <!-- </div> -->
 
+    </div>
 </div>
+
 <div id="quizDiv" class="hide">
-    <h1>quiz</h1>
 
     <div id="question-container">
-        <div id="question">Question</div>
+        <div id="question"></div>
+        <button id="results-btn" class="hide">Results</button>
+
 
         <div id="answer-buttons"></div>
     </div>
@@ -39,6 +43,7 @@
     <h1>results</h1>
 
 </div>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js" ></script>
 

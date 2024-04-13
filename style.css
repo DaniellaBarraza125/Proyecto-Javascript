@@ -3,27 +3,8 @@ padding: 0;
 box-sizing: border-box;
 text-decoration: none;
 }
-div {border: 1px black solid;}
-button {
-    width: 150px;
-    height: 30px;
-
-}
-nav{
-    padding: 2%;
-    font-size: 25px;
-}
 .hide{
     display: none;
-}
-#home {
-    display: flex;
-    justify-content: center;
-
-}
-.hero{
-    width: 70vw;
-    padding: 5%;
 }
 .controls{
     display: flex;
@@ -36,4 +17,55 @@ background-color: rgb(0, 255, 72);
 .wrong {
 background-color: rgb(255, 0, 0);
 }
+nav{
+    background-color: bisque;
+    width: 100%;
+    padding: 2%;
+    font-size: 25px;
+}
+div {border: 1px black solid;}
+button {
+    width: 20%;
+    height: 5vh;
+
+}
+span {
+    padding: 2%;
+}
+h1{
+    padding: 5%;
+}
+.homeDivContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#homeDiv {
+    justify-self: center;
+    width: 80vw;
+    padding: 5%;
+}
+.homeText{
+    padding: 5%;
+}
+#quizDiv{
+    width: 100%;
+    padding: 5%;
+}
+
+#question{
+    padding: 5%;
+}
+#answer-buttons{
+    padding: 2%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+
+
+
 

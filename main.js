@@ -4,6 +4,8 @@ const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const answerButton = document.getElementsByClassName("answerButton");
+const resultsButton = document.getElementById("results-btn")
+const restart = document.getElementById("restart")
 
 const homeNav = document.getElementById("homeNav")
 const quizNav = document.getElementById("quizNav")
@@ -77,15 +79,17 @@ const startGame = (()=>{
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove("hide");
     setNextQuestion();
+
 })
 
-// startGame();
 startButton.addEventListener("click", startGame);
 
 const showQuestion = ((question)=>{
+    resetState();
+
 // console.log("acceder a una pregunta=", quiz[1]);  
 questionElement.innerText= "";
-questionElement.innerText = `holi ${question.question}`;
+questionElement.innerText = question.question;
 //* problema, la respuesta correcta siempre esta en el mismo lugar, he reado un array para unirlas, el problema sera asignar el valor de correcta. concatener las variables, unsar la funcion math.random para darle un orden al azar
 const correctAnswer = question.correct_answer;
 const incorrectAnswers = question.incorrect_answers;
@@ -103,11 +107,11 @@ allAnswers.forEach(answer => {
     button.dataset.correct = answer === correctAnswer;
     button.addEventListener("click", selectAnswer);
     
-    questionElement.appendChild(button);
+    answerButtonsElement.appendChild(button);
 });
 
 console.log("Botón correcto: ", correctAnswer);
-// console.log("current index ",currentQuestionIndex);
+console.log("current index ",currentQuestionIndex);
 // no entiendia porque no funcionaba check buttons y chatGPT me dio la opcion de poner answerButtonsElement.querySelectorAll("button") como argumento de la funcion. asi se inicia correctamnte
 
 
@@ -125,35 +129,31 @@ console.log("Botón correcto: ", correctAnswer);
 //     });
 // }
 const setNextQuestion = (()=>{
-    // resetState();
     selectAnswer()
     showQuestion(quiz[currentQuestionIndex]);
 })
-
+//!sube?
 
 const selectAnswer = () => {
     const selectedButton = event.target;
     countScore(selectedButton); 
-        Array.from(questionElement.children).forEach((button) => {
+    showButtons();
+        Array.from(answerButtonsElement.children).forEach((button) => {
         if (button.dataset.correct === "true") {
             button.classList.add("correct");
         } else {
             button.classList.add("wrong");
-        }showButtons();
-    }
-);
+        }
+        }
+    );
 };
-const showButtons  = (()=>{
-    if (currentQuestionIndex === quiz.length -1) {
+const showButtons  = (()=>{    
+    if (quiz.length > currentQuestionIndex + 1) {
+        nextButton.classList.remove("hide");
+      } else {
         startButton.innerText = "Restart";
         startButton.classList.remove("hide");
-        nextButton.classList.add("hide");
-        
-    } else {
-        // console.log("ey why?");
-        nextButton.classList.remove("hide");
-    }
-    console.log( "holaa");
+      }
 });
 
 
@@ -163,12 +163,19 @@ const countScore=((element)=>{
         console.log("Score:", score);
     }
 })
+function resetState() {
+    nextButton.classList.add("hide");
+    answerButtonsElement.innerHTML = "";
+}
 
 
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++;
     setNextQuestion();
     });
+
+
+    
 
 
 
