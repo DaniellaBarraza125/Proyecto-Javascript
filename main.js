@@ -7,19 +7,19 @@ const answerButton = document.getElementsByClassName("answerButton");
 
 
 
-const API = "https://opentdb.com/api.php?amount=10&category=20&type=multiple";
+const API = "https://mocki.io/v1/e97adce9-e6cb-4ad9-8f31-0e3528b59e43";
 
 let quiz = [];
 let answer = [];
 
 axios.get(API)
-.then ((res)=> {quiz = res.data.results
+.then ((res)=> {quiz = res.data
     // showQuestion(quiz)
     quiz.map(quiz => {
 //*crear vaiables para acceder mas facilmente al contenido. 
         correctAnswer = quiz.correct_answer
         incorrectAnswers = quiz.incorrect_answers
-    // console.log(correctAnswer); 
+    console.log(correctAnswer); 
         
     });
     console.log("log en axios=", quiz)
@@ -82,4 +82,3 @@ function setNextQuestion() {
     // resetState();
     showQuestion(quiz[currentQuestionIndex]);
 }
-
