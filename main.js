@@ -13,30 +13,30 @@ const quizDiv = document.getElementById("quizDiv")
 const resultsDiv = document.getElementById ("resultsDiv")
 
 
-console.log(resultsNav, homeNav, quizNav);
+// console.log(resultsNav, homeNav, quizNav);
 
 const hideViews = (()=>{
-    console.log("working booetch");
+    // console.log("working booetch");
     homeDiv.classList.add("hide")
     quizDiv.classList.add("hide")
     resultsDiv.classList.add("hide")
 })
 const showHome =()=>{
     hideViews()
-    console.log("working");
+    // console.log("working");
     homeDiv.classList.remove("hide")
 }
 
 const showQuiz =()=>{
     hideViews()
-    console.log("working");
+    // console.log("working");
 
     quizDiv.classList.remove("hide")
 }
 
 const showResults =()=>{
     hideViews()
-    console.log("working");
+    // console.log("working");
 
     resultsDiv.classList.remove("hide")
 }
@@ -59,11 +59,11 @@ axios.get(API)
 //*crear vaiables para acceder mas facilmente al contenido. 
         correctAnswer = quiz.correct_answer
         incorrectAnswers = quiz.incorrect_answers
-    console.log(correctAnswer); 
+    // console.log(correctAnswer); 
         
     });
     console.log("log en axios=", quiz)
-    console.log("trayend respuestas=", incorrectAnswers,correctAnswer);;
+    // console.log("trayend respuestas=", incorrectAnswers,correctAnswer);;
 })
 .catch((err)=>console.error(err))
 
@@ -85,7 +85,8 @@ const startGame = (()=>{
 startButton.addEventListener("click", startGame);
 
 const showQuestion = ((question)=>{
-console.log("acceder a una pregunta=", quiz[1]);  
+// console.log("acceder a una pregunta=", quiz[1]);  
+questionElement.innerText= "";
 questionElement.innerText = `holi ${question.question}`;
 //* problema, la respuesta correcta siempre esta en el mismo lugar, he reado un array para unirlas, el problema sera asignar el valor de correcta. concatener las variables, unsar la funcion math.random para darle un orden al azar
 const correctAnswer = question.correct_answer;
@@ -93,32 +94,64 @@ const incorrectAnswers = question.incorrect_answers;
 
     let allAnswers = [correctAnswer, ...incorrectAnswers];
     allAnswers.sort(() => Math.random() - 0.5);
-    console.log("allanswer", allAnswers);
+    // console.log("allanswer", allAnswers);
 
 
-    allAnswers.forEach(answer => {
+allAnswers.forEach(answer => {
     const button = document.createElement("button");
     button.innerText = answer;
-    button.innerText = answer;button.classList.add("answerButton")
-    button.dataset.correct = false;    
-    answerButtonsElement.appendChild(button);
+    button.innerText = answer;
+    button.classList.add("answerButton")
+    button.dataset.correct = answer === correctAnswer;
+    button.addEventListener("click", selectAnswer);
+    
+    console.log("Botón correcto: ", correctAnswer);
+    console.log("current index ",currentQuestionIndex);
+
+    questionElement.appendChild(button);
 });
 // no entiendia porque no funcionaba check buttons y chatGPT me dio la opcion de poner answerButtonsElement.querySelectorAll("button") como argumento de la funcion. asi se inicia correctamnte
 
 
-    checkButtons(answerButtonsElement.querySelectorAll("button"),correctAnswer);
+    // checkButtons(answerButtonsElement.querySelectorAll("button"),correctAnswer);
 
 })
-const checkButtons =(answerButtons, correctAnswer)=>{
-    answerButtons.forEach(button => {
-        if (button.innerText === correctAnswer) {
-            console.log("Botón correcto: ", button.innerText);
-            button.dataset.correct = true;
-        }
-    });
-}
 
-function setNextQuestion() {
+//genere esta funcion porque no se asignaba inmediatamente el valor correcto o falso pero ya no es necesaria
+// const checkButtons =(answerButtons, correctAnswer)=>{
+//     answerButtons.forEach(button => {
+//         if (button.innerText === correctAnswer) {
+//             console.log("Botón correcto: ", button.innerText);
+//             button.dataset.correct = true;
+//         }
+//     });
+// }
+const setNextQuestion = (()=>{
     // resetState();
+    selectAnswer()
     showQuestion(quiz[currentQuestionIndex]);
-}
+})
+
+const selectAnswer = (() => {
+    console.log(quiz.length);
+    console.log(currentQuestionIndex);
+    if (currentQuestionIndex == quiz.length - 1) {
+        startButton.innerText = "Restart";
+        startButton.classList.remove("hide");
+        nextButton.classList.add("hide");
+    } else {
+        // Si no quedan más preguntas, mostrar el botón "Start" en su lugar
+        
+        nextButton.classList.remove("hide");
+
+    }
+});
+
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++;
+    setNextQuestion();
+    });
+
+
+
+
