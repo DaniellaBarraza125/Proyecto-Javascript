@@ -15,7 +15,21 @@ const quizDiv = document.getElementById("quizDiv")
 const resultsDiv = document.getElementById ("resultsDiv")
 const resultText = document.getElementById("resultText")
 const resultsTitle = document.getElementById("resultsTitle")
+const questionPicture = document.getElementById("questionPicture");
 const API = "https://mocki.io/v1/e97adce9-e6cb-4ad9-8f31-0e3528b59e43";
+const images = ["https://ew.com/thmb/32T_6AhYg9f-mkmQkYSQ_5zKLAs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/friends-w-way-no-way-6dfab18f4fb34a4d8a23ac4770f3eea8.jpg",
+"https://pyxis.nymag.com/v1/imgs/5fa/e29/c77102139bd5a89e44c227152d9b39609c-chandler-friends-the-one-where-everyone-.rhorizontal.w700.jpg",
+"https://ew.com/thmb/vRX24adlg8rI3OjBgzPmmueToI8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/friends-d-dr-drake-ramoray-aa86c1007fd745b79f2448e25e0f37f9.jpg",
+"https://ew.com/thmb/8LczFE71zuG8wJBvmTsOmrFgsAk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/friends-t-thanksgiving-80c84fc5854044af96994fd3f771c763.jpg",
+"https://ew.com/thmb/wv98OXqEIMDz-UjFaOSVVg70WaY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/friends-p-princess-leia-e95430c695b04f948b88ec8ecd977bd6.jpg",
+"https://ew.com/thmb/yl5MJ7xi9ZPwJTUWIqttuEsdKHs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/friends-h-holiday-armadillo-bd5957188201499597c6436602fc70c2.jpg",
+"https://ew.com/thmb/OnWFvpns5kV9DSZHAbwPntsAcFk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/friends-f-frankie-says-relax-9b5fd0450f8943888a9909740f9b89f1.jpg",
+"https://imagenes.20minutos.es/files/image_1920_1080/uploads/imagenes/2019/09/25/Heres-Why-Phoebe-Buffay-from-Friends-Was-the-Most-Sorted-Character-768x514.jpg",
+"https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/29/1469104389-joey-tribbiani-matt-le-blanc-friends-how-are-you-doing.gif?resize=640:*",
+"https://www.thesun.co.uk/wp-content/uploads/2019/09/NINTCHDBPICT000523697076.jpg",
+"https://pyxis.nymag.com/v1/imgs/5fa/e29/c77102139bd5a89e44c227152d9b39609c-chandler-friends-the-one-where-everyone-.rhorizontal.w700.jpg",
+"https://www.theodysseyonline.com/media-library/bing-images.png?id=24427560&width=1060&height=555&quality=85&coordinates=0%2C0%2C0%2C0","https://todosalta.com/download/multimedia.normal.a1678a11fe751ea2.bWF0dGhldy1wZXJyeS1mcmllbmRzX25vcm1hbC53ZWJw.webp","https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2021/09/friends-chandler-bing-2482587.jpg?tf=3840x"]
+
 
 let quiz = [];
 let answer = [];
@@ -78,9 +92,20 @@ const startGame = (()=>{
     setNextQuestion();
 
 })
+let currentImageIndex = 0;
+
+const showImage = (()=>{
+    const currentImage = images[currentImageIndex];
+    questionPicture.innerHTML = `<img id="image" src="${currentImage}" />`;
+    currentImageIndex++;
+    if (currentImageIndex === images.length) {
+        currentImageIndex = 0;
+    }
+});
 const showQuestion = ((question)=>{
     resetState();
     showScore();
+    showImage();
 
     
 // console.log("acceder a una pregunta=", quiz[1]);  
