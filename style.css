@@ -34,7 +34,7 @@ span {
     padding: 2%;
 }
 h1{
-    padding: 5%;
+    padding: 3%;
 }
 .homeDivContainer{
     display: flex;
@@ -77,9 +77,24 @@ h1{
     justify-content: space-around;
     flex-wrap: wrap;
 }
+/* RESULTS */
 
+.anotherContainer{
+    display: flex;
+    justify-content: center;
+}
+#resultsContainer{
+    margin: 2%;
+    width: 80vw;
+    padding: 3%;
+    position: relative;
 
+  
+}
 
-
-
-
+#resultsTitle{
+    margin: 3%;
+}
+#resultText{
+    margin: 5%;
+}
