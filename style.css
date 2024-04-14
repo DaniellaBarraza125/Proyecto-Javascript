@@ -80,21 +80,20 @@ h1{
 /* RESULTS */
 
 .anotherContainer{
+    margin: 10% 20%;
     display: flex;
     justify-content: center;
 }
-#resultsContainer{
-    margin: 2%;
-    width: 80vw;
-    padding: 3%;
-    position: relative;
-
-  
-}
-
 #resultsTitle{
     margin: 3%;
 }
 #resultText{
     margin: 5%;
+}
+#footerDiv{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height:  10vh;
+    background-color: aquamarine;
 }
