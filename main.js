@@ -15,7 +15,12 @@ const quizDiv = document.getElementById("quizDiv")
 const resultsDiv = document.getElementById ("resultsDiv")
 const resultText = document.getElementById("resultText")
 const resultsTitle = document.getElementById("resultsTitle")
-const API = "https://mocki.io/v1/e97adce9-e6cb-4ad9-8f31-0e3528b59e43";
+const questionImg = document.getElementById("questionPicture")
+
+console.log(questionImg);
+
+
+const API = "https://mocki.io/v1/b8131a19-289c-4c44-aff0-8cc57e6fcd54";
 
 let quiz = [];
 let answer = [];
@@ -68,6 +73,7 @@ axios.get(API).then ((res)=> {quiz = res.data
 let currentQuestionIndex;
 const startGame = (()=>{
     score = 0
+
     // console.log("funciono!");
     // console.log("respuesta incorrecta", incorrectAnswers)
     // console.log("correcta", correctAnswer); 
@@ -81,15 +87,13 @@ const startGame = (()=>{
 const showQuestion = ((question)=>{
     resetState();
     showScore();
-
-    
 // console.log("acceder a una pregunta=", quiz[1]);  
 questionElement.innerText= "";
 questionElement.innerText = question.question;
 //posicion al azar
 let correctAnswer = question.correct_answer;
-
-    let allAnswers = [correctAnswer, ...incorrectAnswers];
+let incorrectAnswers = question.incorrect_answers;
+let allAnswers = [correctAnswer, ...incorrectAnswers];
     allAnswers.sort(() => Math.random() - 0.5);
     // console.log("allanswer", allAnswers);
 
@@ -99,6 +103,9 @@ allAnswers.forEach(answer => {
     button.classList.add("answerButton")
     button.dataset.correct = answer === correctAnswer;
     button.addEventListener("click", selectAnswer);
+    questionImg.innerHTML= ` <img src="${question.image}" alt="Friends picture" id="image">`
+    
+
     
     answerButtonsElement.appendChild(button);
 });
@@ -126,6 +133,7 @@ const showButtons  = (()=>{
     if (quiz.length+1  > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
     } else {
+        questionImg.innerHTML = " ",
     resultsButton.classList.remove("hide")
     startButton.innerText = "Restart";
     startButton.classList.remove("hide");
@@ -179,26 +187,3 @@ homeNav.addEventListener("click",showHome)
 quizNav.addEventListener("click",showQuiz)
 resultsNav.addEventListener("click",showResultsDiv)
 startButton.addEventListener("click", startGame);
-
-//genere esta funcion porque no se asignaba inmediatamente el valor correcto o falso pero ya no es necesaria
-// const checkButtons =(answerButtons, correctAnswer)=>{
-//     answerButtons.forEach(button => {
-//         if (button.innerText === correctAnswer) {
-//             console.log("Botón correcto: ", button.innerText);
-//             button.dataset.correct = true;
-//         }
-//     });
-// }
-
-
-
-
-
-const showImage = (()=>{
-    const currentImage = images[currentImageIndex];
-    questionPicture.innerHTML = `<img id="image" src="${currentImage}" />`;
-    currentImageIndex++;
-    if (currentQuestionIndex == 10) {
-        questionPicture.innerHTML = '';
-    }
-});
