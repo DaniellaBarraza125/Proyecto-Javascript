@@ -5,6 +5,7 @@ const nextButton = document.getElementById("next-btn");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const answerButton = document.getElementsByClassName("answerButton");
 const resultsButton = document.getElementById("results-btn")
+const sendButton = document.getElementById("sendButton")
 
 // containers
 
@@ -26,14 +27,32 @@ const questionElement = document.getElementById("question");
 const resultsTitle = document.getElementById("resultsTitle")
 const questionImg = document.getElementById("questionPicture")
 
-
+const inputName = document.getElementById("inputName")
+const inputEmail = document.getElementById("inputEmail")
+const form = document.getElementById("form")
 
 const API = "https://mocki.io/v1/53f21f08-a2a4-413b-bf34-aa11d35f7654";
+
 // variables
 let quiz = [];
 let answer = [];
 let score;
 let finalScore;
+let listaUsuarios = [];
+// =JSON.parse(localStorage.getItem("usuarios"))|| []
+let maxId
+let Usuarios
+
+for (let i = 0; i < listaUsuarios.length; i++) {
+if (listaUsuarios[i].id > maxId) {
+    maxId = listaUsuarios[i].id;
+}}
+let userid = maxId + 1;
+if (maxId > 0) {
+userid = maxId + 1;
+} else {
+userid = 1;
+}
 
 // console.log(resultsNav, homeNav, quizNav);
 
@@ -191,8 +210,23 @@ const showResults = () => {
     }
 };
 
+const onSubmit=(e)=>{
+    e.preventDefault()
+    const Name = inputName.value
+    const Email = inputEmail.value
 
+    const usuario = { id: userid, name: Name, email: Email };
+    listaUsuarios.push(usuario);    
+    localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios))
+    userid++;
+    
+    console.log(inputEmail.value);
+    console.log(inputName.value);
 
+    console.log(listaUsuarios);
+}
+
+form.addEventListener('submit',onSubmit)
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++;
     setNextQuestion();
