@@ -21,6 +21,11 @@ margin: 2%;
 height: 5vh;
 
 }
+button:hover{
+    background-color: lightpink;
+    box-shadow: 5px 5px yellow
+
+}
 .hide{
     display: none;
 }
@@ -29,11 +34,11 @@ height: 5vh;
     justify-content: center;
 }
 .correct {
-background-color: rgb(0, 255, 72);
+background-color: rgb(174, 255, 136);
 }
 
 .wrong {
-background-color: rgb(255, 0, 0);
+background-color: rgb(232, 96, 160);
 }
 nav{
     background-color: var(--navFootColor);
@@ -53,9 +58,9 @@ span {
     background-color: aliceblue;
 }
 .homeText{ 
-    display: flex;
+    /* display: flex; */
     justify-content: center;
-    padding: 2%;
+    padding: 8%;
 }
 .flex{
     display: flex;
@@ -143,6 +148,9 @@ span {
     width: 100%;
     height:  9vh;
     background-color: var(--navFootColor);
+    text-align: center;
+    font-size: 20px;
+    padding: 2%;
 }
 #image{
     max-width: 400px;
@@ -165,6 +173,12 @@ span {
 }
 .resultP{
     padding: 5%;
+}
+.formDiv{
+    margin:5%
+}
+#logo{
+    width: 70%;
 }
 
 

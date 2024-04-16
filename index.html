@@ -21,13 +21,25 @@
     </nav>
 <div id="homeDiv" class="hide">
     <div class="homeDivContainer">
-            <div class="homeText">
-                <div>
-
-                    <h1> friends</h1>
-                    <p> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</p>
-                </div>
+        <div class="homeText">
+            <div>
+                <img src="./assets/Friends_logo.svg" alt="Friend's logo" id="logo">
+                <p> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</p>
             </div>
+            <div class="formDiv">
+                <form>
+                    <fieldset>
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                    <br>
+                    <label for="email">Correo:   </label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <button  class="sendButton" type="submit">Enviar</button>
+                </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -63,8 +75,8 @@
 </div>
 <footer>
     <div id="footerDiv" >
-        a super page made by Dani
-
+        A super page made by Dani
+        
     </div>
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
