@@ -1,72 +1,116 @@
-
 *{margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    }
-    .hide{
-        display: none;
-    }
-    .controls{
-        display: flex;
-        justify-content: center;
-    }
-    .correct {
-    background-color: rgb(0, 255, 72);
-    }
+padding: 0;
+box-sizing: border-box;
+text-decoration: none;
+}
+:root{
+--navFootColor: #78e5f1;
+}
+/* div {border: 1px black solid;} */
+body{
+background-image: url(./assets/lighy.jpg);
+background-size: cover;
+font-family: "Cabin Sketch", sans-serif;
+
+}
+button{
+font-family: "Cabin Sketch", sans-serif;
+font-weight: 700;
+width: 20%;
+margin: 2%;
+height: 5vh;
+
+}
+.hide{
+    display: none;
+}
+.controls{
+    display: flex;
+    justify-content: center;
+}
+.correct {
+background-color: rgb(0, 255, 72);
+}
+
+.wrong {
+background-color: rgb(255, 0, 0);
+}
+nav{
+    background-color: var(--navFootColor);
+    width: 100%;
+    padding: 2%;
+    font-size: 25px;
+    font-weight: 400;
+}
+span {
+    padding: 2%;
+}
+
+.homeDivContainer{
+    display: flex;
+    justify-content: center;
+    margin: 10%;
+    background-color: aliceblue;
+}
+.homeText{ 
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    width: 80vw;
+}
+
+
+/* quizsession */
+#questionPicture{
+    display: flex;
+    justify-content: center;
+}
+#infoDivTitle{
+    text-align: center;
+}
+#score{
+    text-align: center;
+}
+#quizDiv{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0% 4%;
+}
+#question-container{
+    margin-top: 5%;
+    background-color: aliceblue;
+    max-width: 800px;
+    width: 80vw;
+}
+
+#question{
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+#answer-buttons{
+    padding: 2%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
     
-    .wrong {
-    background-color: rgb(255, 0, 0);
-    }
-    nav{
-        background-color: #ffe4c4;
-        width: 100%;
-        padding: 2%;
-        font-size: 25px;
-    }
-    div {border: 1px black solid;}
-    button {
-        width: 20%;
-        height: 5vh;
-    
-    }
-    span {
-        padding: 2%;
-    }
-    
-    .homeDivContainer{
-        display: flex;
-        justify-content: center;
-    }
-    .flex{
-        max-width: 800px;
-        width: 80vw;
-    }
-    
-    .homeText{
-        padding: 2%;
-    }
-    
-    /* quizsession */
-    #questionPicture{
-        display: flex;
-        justify-content: center;
-    }
-    #infoDivTitle{
+    /* #question-container{
         text-align: center;
-    }
-    #score{
-        text-align: center;
-    }
-    #quizDiv{
-        display: flex;
-        justify-content: center;
-    }
-    
-    #question-container{
-        max-width: 800px;
+        max-width: 1100px;
         width: 80vw;
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
     }
+
     
     #question{
         padding: 2%;
@@ -74,53 +118,88 @@
         justify-content: center;
     }
     
-    #answer-buttons{
+    #answer-buttons {
+        width: 90%;
         padding: 2%;
         display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-    /* RESULTS */
+        flex-wrap: wrap;        
+        justify-content: center; 
+    } */
+          /* RESULTS */
     
-    .anotherContainer{
-        margin: 10% 20%;
-        display: flex;
-        justify-content: center;
-    }
-    #resultsTitle{
-        margin: 3%;
-    }
-    #resultText{
-        margin: 5%;
-    } 
-    #footerDiv{
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height:  9vh;
-        background-color: aquamarine;
-    }
-    #image{
-    max-height: 350px;
-    }
+.anotherContainer{
+    margin: 5% 20%;
+
+}
+#resultsTitle{
+    margin: 3%;
+}
+#resultText{
+    margin: 5%;
+} 
+#footerDiv{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height:  9vh;
+    background-color: var(--navFootColor);
+}
+#image{
+    max-width: 400px;
+}
+#quizInfoDiv {
+    text-align: center;
+    max-width: 600px;
+    padding: 0px 20px; 
+}
+#resultsTextDiv
+{
+    background-color: aliceblue;
+    max-width: 800px;
+    width: 80vw;
+}
+.resultTitle{
+    padding: 5%;
+    font-weight: 900;
+    color: rgb(18, 18, 18);
+}
+.resultP{
+    padding: 5%;
+}
+
+
     
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 800px) {
+        #question-container{
+            background-color: pink;
+            max-width: 400px;
+            width: 80vw;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+        }
         body {
         background-color: lightblue;
     }
     #image{
         border: 5px fuchsia solid;
-    height: 180px;}
+        height: 180px;
+    }
     h2 {
         padding: 5%;
-    }
-    
-    button {
-        width: 100%;
-        height: 5vh;
-        margin: 1%;
     }
     nav{
         padding: 5%;
     }
+button{
+    height: 5vh;
+    width:  50vw;
+}  
+#answer-buttons{
+    margin-left: 20px;
+}
+
+
+
+
     }

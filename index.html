@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="/assets/Friends Frame.svg" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,38 +15,47 @@
     <nav>
         <span id="homeNav">Home</span>
         <span id="quizNav">Quiz</span>
+        <span id="personalityQuizNav">Personality quiz</span>
+
         <span id="resultsNav">Results</span>
     </nav>
 <div id="homeDiv" class="hide">
     <div class="homeDivContainer">
-        <div class="flex">
+            <div class="homeText">
+                <div>
 
-            <h1> friends</h1>
-            <p class="homeText"> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</p>
-        </div>
+                    <h1> friends</h1>
+                    <p> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</p>
+                </div>
+            </div>
     </div>
 </div>
 
 <div id="quizDiv" class="hide">
     <div id="question-container" class="hide">
+    <div class="flex">
         <div id="quizInfoDiv">
             <div id="score">
             </div>
             <h2 id="infoDivTitle">The One with the trivia</h2>
-            <div id="questionPicture"></div>
+            <div id="questionPicture">
+            </div>
+            <div id="question"></div>
+            <div id="answer-buttons"></div>
+
+            <div class="controls">
+                <button id="next-btn" class="hide">Next</button>
+                <button id="results-btn" class="hide">Results</button>
+                <button id="start-btn">Start</button>
+            </div>
         </div>
-        <div id="question"></div>
-            <button id="results-btn" class="hide">Results</button>
-        <div id="answer-buttons"></div>
-        <div class="controls">
-            <button id="start-btn">Start</button>
-            <button id="next-btn" class="hide">Next</button>
-        </div>
+    </div>
+        
     </div>
 </div>
 <div id="resultsDiv" class="hide">
-    <div id="resultsTextDiv">   
-        <div class="anotherContainer">
+    <div class="anotherContainer">
+        <div id="resultsTextDiv">   
 
         </div>
 

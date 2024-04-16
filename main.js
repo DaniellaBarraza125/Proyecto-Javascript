@@ -41,6 +41,7 @@ const hideViews = (()=>{
     // console.log("working booetch");
     homeDiv.classList.add("hide")
     questionContainer.classList.add("hide")
+    quizDiv.classList.add("hide")
     resultsDiv.classList.add("hide")
 })
 hideViews();
@@ -54,6 +55,7 @@ const showHome =()=>{
 const showQuiz =()=>{
     hideViews();
     questionContainer.classList.remove("hide");
+    quizDiv.classList.remove("hide")
     // console.log("working");
 }
 
