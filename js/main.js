@@ -19,7 +19,6 @@ const scoreDiv = document.getElementById("score")
 const resultsDiv = document.getElementById ("resultsDiv")
 const resultsTextDiv = document.getElementById("resultsTextDiv")
 const personalityDiv = document.getElementById("personalityDiv")
-
 // nav
 const homeNav = document.getElementById("homeNav")
 const quizNav = document.getElementById("quizNav")
@@ -30,9 +29,7 @@ const questionImg = document.getElementById("questionPicture")
 
 const personalityQuizNav = document.getElementById("personalityQuizNav")
 
-const inputName = document.getElementById("inputName")
-const inputEmail = document.getElementById("inputEmail")
-const form = document.getElementById("form")
+
 
 const API = "https://mocki.io/v1/53f21f08-a2a4-413b-bf34-aa11d35f7654";
 
@@ -42,21 +39,10 @@ let quiz = [];
 let answer = [];
 let score;
 let finalScore;
-let listaUsuarios = [];
-// =JSON.parse(localStorage.getItem("usuarios"))|| []
-let maxId
-let Usuarios
 
-for (let i = 0; i < listaUsuarios.length; i++) {
-if (listaUsuarios[i].id > maxId) {
-    maxId = listaUsuarios[i].id;
-}}
-let userid = maxId + 1;
-if (maxId > 0) {
-userid = maxId + 1;
-} else {
-userid = 1;
-}
+
+
+
 
 // console.log(resultsNav, homeNav, quizNav);
 
@@ -65,8 +51,9 @@ const hideViews = (()=>{
     homeDiv.classList.add("hide")
     questionContainer.classList.add("hide")
     quizDiv.classList.add("hide")
-    resultsDiv.classList.add("hide")
     personalityDiv.classList.add("hide")
+    resultsTextDiv.classList.add("hide")
+    graficDiv.classList.add("hide")
 
 })
 hideViews();
@@ -80,19 +67,22 @@ const showHome =()=>{
 const showQuiz =()=>{
     hideViews();
     questionContainer.classList.remove("hide");
-    quizDiv.classList.remove("hide")
+    // quizDiv.classList.remove("hide")
     // console.log("working");
 }
 
 const showResultsDiv =()=>{
     hideViews();
-    resultsDiv.classList.remove("hide");
+    resultsTextDiv.classList.remove("hide");
+    graficDiv.classList.remove("hide")
     // console.log("working");
 }
+
 const showPersonalitDiv = ()=>{
     hideViews();
     personalityDiv.classList.remove("hide")
     }
+
     personalityQuizNav.addEventListener("click",showPersonalitDiv)
 
 axios.get(API).then ((res)=> {quiz = res.data
@@ -128,6 +118,7 @@ const showQuestion = ((question)=>{
     const button = document.createElement("button");
     button.innerHTML = ` value="${answer.value}">`
     button.innerText =`${answer.answer}`;
+    button.classList.add("answerButton")
     questionImg.innerHTML= ` <img src="${question.image}" alt="Friends picture" id="image">`
     if (answer.value) {
         button.dataset.correct = true;
@@ -221,24 +212,6 @@ const showResults = () => {
     }
 };
 
-const onSubmit=(e)=>{
-    e.preventDefault()
-    const Name = inputName.value
-    const Email = inputEmail.value
-
-    const usuario = { id: userid, name: Name, email: Email };
-    listaUsuarios.push(usuario);    
-    localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios))
-    userid++;
-    
-    console.log(inputEmail.value);
-    console.log(inputName.value);
-
-    console.log(listaUsuarios);
-}
-
-
-form.addEventListener('submit',onSubmit)
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++;
     setNextQuestion();

@@ -5,22 +5,96 @@ text-decoration: none;
 }
 :root{
 --navFootColor: #78e5f1;
+--divBg: white;
 }
 /* div {border: 1px black solid;} */
 body{
 background-image: url(./assets/lighy.jpg);
 background-size: cover;
 font-family: "Cabin Sketch", sans-serif;
+}
 
+#question-container{
+    margin-top: 5%;
+    background-color: var(--divBg);
+    max-width: 800px;
+    width: 80vw;
+    border-radius: 10px; 
+
+}
+.homeDivContainer{
+    text-align: center;    
+    display: flex;
+    justify-content: center;
+    margin: 10%;
+    background-color: var(--divBg);
+    border-radius: 10px; 
+    margin-top: 5%;
+}
+.formDiv{
+    display: flex;
+    justify-content: center;
+}
+#logo{
+    position: relative;
+}
+.textHome{
+    text-align: center;
+width: 90%;
+padding: 40px;}
+#logo{
+    width: 90%;
+}
+#resultsTextDiv
+{
+    background-color: var(--divBg);
+    max-width: 800px;
+    width: 80vw;
+    border-radius: 10px; 
+    margin-top: 5%;
+
+
+}
+#personalityDiv {
+    justify-content: center;
+    margin: 0% 4%;
+    align-self: ;
+    margin-top: 5%;
+
+}
+.prueba{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
+    background-color: var(--divBg);
+    border-radius: 10px;
+}
+#personalityAnswerButtons {
+    display: flex;
+    flex-direction: column;
+    
 }
 button{
-font-family: "Cabin Sketch", sans-serif;
-font-weight: 700;
-width: 20%;
-margin: 2%;
-height: 5vh;
+    font-family: "Cabin Sketch", sans-serif;
+    font-weight: 700;
+    width: 20%;
+    margin: 2%;
+    height: 5vh;
+    
+    }
+.personalitybutton{
+width: 400px;
+}
+#graficDiv{
+    width: 80vw;
+    border-radius: 10px; 
+    background-color: var(--divBg);
+    margin-top: 5%;
+
 
 }
+
+
 button:hover{
     background-color: lightpink;
     box-shadow: 5px 5px yellow
@@ -51,14 +125,8 @@ span {
     padding: 2%;
 }
 
-.homeDivContainer{
-    display: flex;
-    justify-content: center;
-    margin: 10%;
-    background-color: aliceblue;
-}
+
 .homeText{ 
-    /* display: flex; */
     justify-content: center;
     padding: 8%;
 }
@@ -68,6 +136,52 @@ span {
     max-width: 800px;
     width: 80vw;
 }
+
+.formDiv {
+    margin: 5%;
+    text-align: center;
+}
+
+.formDiv form {
+    max-width: 70%;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--divBg);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.formDiv form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.formDiv form input[type="text"],
+.formDiv form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.formDiv form button {
+    padding: 10px;
+    background-color: #78e5f1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.formDiv form button:hover {
+    background-color: #5bc0de;
+}
+
 
 
 /* quizsession */
@@ -87,12 +201,7 @@ span {
     justify-content: center;
     margin: 0% 4%;
 }
-#question-container{
-    margin-top: 5%;
-    background-color: aliceblue;
-    max-width: 800px;
-    width: 80vw;
-}
+
 
 #question{
     padding: 2%;
@@ -130,10 +239,13 @@ span {
         flex-wrap: wrap;        
         justify-content: center; 
     } */
-          /* RESULTS */
+
+/* RESULTS */
     
 .anotherContainer{
-    margin: 5% 20%;
+    display: flex;
+    justify-content: center;
+    margin: 10% 20%;
 
 }
 #resultsTitle{
@@ -160,12 +272,7 @@ span {
     max-width: 600px;
     padding: 0px 20px; 
 }
-#resultsTextDiv
-{
-    background-color: aliceblue;
-    max-width: 800px;
-    width: 80vw;
-}
+
 .resultTitle{
     padding: 5%;
     font-weight: 900;
@@ -181,34 +288,17 @@ span {
     width: 70%;
 }
 /* personality quiz */
-/* personality quiz */
-#personalityDiv {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin: 0% 4%;
-    background-color: aliceblue;
-    max-width: 800px;
-    width: 80vw;
-    flex-direction: column;
-}
 
-#personalityTestContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: lightblue; /* Color de fondo para cubrir las preguntas y las respuestas */
-    border-radius: 10px; /* Añade bordes redondeados para suavizar la apariencia */
-}
+
+
+
 
 #personalityQuestions {
     padding: 20px;
+    align-self: center;
 }
 
-#personalityAnswerButtons {
-    padding: 20px;
-}
+
 
 .personallityControls {
     display: flex;
@@ -217,21 +307,20 @@ span {
 }
 
 #personalityStartBtn,
-#personalityNextBtn {
-    font-size: 1.2em; /* Ajusta el tamaño del texto de los botones */
-    padding: 10px 20px; /* Ajusta el relleno de los botones */
-    margin: 10px; /* Añade espacio entre los botones */
-    background-color: #78e5f1; /* Color de fondo de los botones */
-    border: none; /* Elimina el borde de los botones */
-    border-radius: 5px; /* Añade bordes redondeados a los botones */
-    cursor: pointer; /* Cambia el cursor al pasar sobre los botones */
-    transition: background-color 0.3s ease; /* Añade transición al cambio de color de fondo */
+#resultsPersonalityButton {
+    font-size: 1.2em; 
+    padding: 10px 20px; 
+    margin: 10px; 
+    background-color: #78e5f1; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
 }
 
 #personalityStartBtn:hover,
 #personalityNextBtn:hover {
-    background-color: #5bc0de; /* Cambia el color de fondo al pasar sobre los botones */
-}
+    background-color: #5bc0de;}
 
     @media only screen and (max-width: 800px) {
         #question-container{
@@ -253,6 +342,7 @@ span {
         padding: 5%;
     }
     nav{
+        font-size: 20px;
         padding: 5%;
     }
 button{

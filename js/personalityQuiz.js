@@ -3,7 +3,9 @@ const nextPersonalityButton = document.getElementById("personalityNextBtn");
 const questionPersonalityContainerElement = document.getElementById("personalityTestContainer");
 const questionPersonalityElement = document.getElementById("personalityQuestions");
 const answerPersonalityButtonsElement = document.getElementById("personalityAnswerButtons");
-const resultsPersonalityButton = document.getElementById("results-btn")
+const resultsPersonalityButton = document.getElementById("resultsPersonalityButton")
+const graficDiv = document.getElementById("graficDiv")
+
 
 const personalityAPI = "https://mocki.io/v1/ccd5365c-9e98-4d3a-aa0d-6fc0db893260"
 
@@ -30,37 +32,38 @@ answers = question.answers;
 
 let currentPersonalityIndex;
 
-    function startPersonalityGame() {
+    const startPersonalityGame = () => {
     startPersonalityButton.classList.add("hide");
+    resultsPersonalityButton.classList.add("hide");
     currentPersonalityIndex = 0;
     questionPersonalityContainerElement.classList.remove("hide");
     setNextPersonalityQuestion();
     }
 
-function showPersonalityQuestion(question) {
-    questionPersonalityElement.innerText = question.question;
-    console.log(phoebe,ross,joey,rachel,monica,chandler);
-    question.answers.forEach((answer) => {
-        // console.log(answer);
-        const button = document.createElement("button");
-        button.innerHTML = `value="${answer.character}`;
-        button.innerText = `${answer.answer} `
-    
-        button.addEventListener("click", selectPersonalityAnswer);
-        answerPersonalityButtonsElement.appendChild(button);
-    });
+    const showPersonalityQuestion = (question) => {
+        questionPersonalityElement.innerText = question.question;
+        console.log(phoebe,ross,joey,rachel,monica,chandler);
+        question.answers.forEach((answer) => {
+            const button = document.createElement("button");
+            button.value = answer.character; 
+            button.innerText = `${answer.answer} `;
+            button.classList.add("personalitybutton")
+            button.addEventListener("click", selectPersonalityAnswer);
+            answerPersonalityButtonsElement.appendChild(button);
+        });
     }
-function resetPersonalityState() {
+    
+const resetPersonalityState = ()=> {
     nextPersonalityButton.classList.add("hide");
     answerPersonalityButtonsElement.innerHTML = "";
 }
 
-function setNextPersonalityQuestion() {
+const setNextPersonalityQuestion = () => {
     resetPersonalityState();
     showPersonalityQuestion(questions[currentPersonalityIndex]); 
   }
 
-function setPersonalityScoress(character) {
+const setPersonalityScores= (character)=> {
 
 // console.log(character); 
 switch (character) {
@@ -94,20 +97,25 @@ default:
 }
     // console.log(rachel,ross,joey,chandler,monica,phoebe);
 }
-function selectPersonalityAnswer(event) {
-const selectedPersonalityButton = event.target; 
-const character = selectedPersonalityButton.value; 
-setPersonalityScoress(character); console.log(questions.length, currentPersonalityIndex+1);
-if (questions.length > currentPersonalityIndex + 1) {
-    nextPersonalityButton.classList.remove("hide");
-} else {
-    answerPersonalityButtonsElement.innerHTML="";
-    questionPersonalityElement.innerText = "";
-    startPersonalityButton.innerText = "Restart";
-    startPersonalityButton.classList.remove("hide");
-    graficarPuntajes();
+const selectPersonalityAnswer = (event) => {
+    const selectedPersonalityButton = event.target; 
+    const character = selectedPersonalityButton.value; 
+    setPersonalityScores(character);
+    console.log(questions.length, currentPersonalityIndex + 1);
+    if (questions.length === currentPersonalityIndex + 1) { 
+        resultsPersonalityButton.classList.remove("hide"); 
+        answerPersonalityButtonsElement.innerHTML = "";
+        questionPersonalityElement.innerText = "";
+        startPersonalityButton.innerText = "Restart";
+        startPersonalityButton.classList.remove("hide");
+
+        graficarPuntajes();
+    } else {
+        currentPersonalityIndex++; 
+        setNextPersonalityQuestion(); 
+    }
 }
-}
+
 
 startPersonalityButton.addEventListener("click", startPersonalityGame);
 nextPersonalityButton.addEventListener("click", () => {
@@ -117,7 +125,7 @@ nextPersonalityButton.addEventListener("click", () => {
 
 
 // graficas
-function graficarPuntajes() {
+const graficarPuntajes = ()=> {
     // Definir los datos para la gráfica
     const labels = ['Phoebe', 'Ross', 'Rachel', 'Chandler', 'Monica', 'Joey'];
     const data = {
@@ -140,3 +148,11 @@ function graficarPuntajes() {
     // Crear la gráfica
     const myChart = new Chart('myChart', config);
 }
+const showPersonalityResultsDiv =()=>{
+    hideViews();
+    resultsDiv.classList.remove("hide");
+    graficDiv.classList.remove("hide")
+    // console.log("working");
+}
+
+resultsPersonalityButton.addEventListener("click",showPersonalityResultsDiv)

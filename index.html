@@ -25,11 +25,11 @@
         <div class="homeText">
             <div>
                 <img src="./assets/Friends_logo.svg" alt="Friend's logo" id="logo">
-                <p> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</p>
+                <div></div>
+                <div class=" textHome"> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</d>
             </div>
             <div class="formDiv">
                 <form id="form">
-                    <fieldset>
                     <label for="name">Nombre:</label>
                     <input type="text" id="inputName" name="name" >
                     <br>
@@ -37,7 +37,6 @@
                     <input type="text" id="inputEmail" name="email" >
                     <br>
                     <button  id="sendButton" type="submit">Enviar</button>
-                </fieldset>
                 </form>
             </div>
         </div>
@@ -67,25 +66,28 @@
     </div>
 </div>
 <div id="personalityDiv"  class="hide" >
-    <div id="personalityTestContainer"style="display:flex" >
-        
-            <div id="personalityQuestions">Question</div>
-            <div id="personalityAnswerButtons"> answers</div>
-    </div>
-    <div class="personallityControls">
-        <button id="personalityStartBtn" class="">Start</button>
-        <button id="personalityNextBtn" class="hide">Next</button>
-        <button id="resultsPersonalityButton" class="hide">Results</button>
+    <div id="personalityTestContainer" >
+        <div class="prueba">
 
+        
+            <div id="personalityQuestions"></div>
+            <div id="personalityAnswerButtons"> </div>
+        </div>
+            <div class="personallityControls">
+                <button id="personalityStartBtn" class="">Start</button>
+                <button id="personalityNextBtn" class="hide">Next</button>
+                <button id="resultsPersonalityButton" class="hide">Results</button>
+            </div>
     </div>
+
 </div>
 
-<div id="resultsDiv" class="hide">
+<div id="resultsDiv">
     <div class="anotherContainer">
-        <div id="resultsTextDiv">   
+        <div id="resultsTextDiv" class="hide">   
 
         </div>
-        <div class="graficDiv">
+        <div id="graficDiv" class="hide">
             <div class="graficContainer">
                 <canvas id="myChart"></canvas>
             </div>
