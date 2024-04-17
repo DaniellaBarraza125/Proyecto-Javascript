@@ -25,11 +25,11 @@
         <div class="homeText">
             <div>
                 <img src="./assets/Friends_logo.svg" alt="Friend's logo" id="logo">
-                <div></div>
-                <div class=" textHome"> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</d>
+                <p> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</p>
             </div>
             <div class="formDiv">
                 <form id="form">
+                    <fieldset>
                     <label for="name">Nombre:</label>
                     <input type="text" id="inputName" name="name" >
                     <br>
@@ -37,6 +37,7 @@
                     <input type="text" id="inputEmail" name="email" >
                     <br>
                     <button  id="sendButton" type="submit">Enviar</button>
+                </fieldset>
                 </form>
             </div>
         </div>
@@ -45,7 +46,6 @@
 
 <div id="quizDiv" class="hide">
     <div id="question-container" class="hide">
-    <div class="flex">
         <div id="quizInfoDiv">
             <div id="score">
             </div>
@@ -64,22 +64,16 @@
     </div>
         
     </div>
-</div>
 <div id="personalityDiv"  class="hide" >
     <div id="personalityTestContainer" >
-        <div class="prueba">
-
-        
             <div id="personalityQuestions"></div>
             <div id="personalityAnswerButtons"> </div>
-        </div>
             <div class="personallityControls">
                 <button id="personalityStartBtn" class="">Start</button>
                 <button id="personalityNextBtn" class="hide">Next</button>
                 <button id="resultsPersonalityButton" class="hide">Results</button>
             </div>
     </div>
-
 </div>
 
 <div id="resultsDiv">
@@ -95,15 +89,13 @@
 
     </div>
 </div>
-<footer>
-    <div id="footerDiv" >
-        A super page made by Dani
-        
-    </div>
+<footer id="footerDiv" >
+
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/main.js" ></script>
     <script src="./js/personalityQuiz.js"></script>
+    <script src="./js/users.js"></script>
 
 </body>
 </html>

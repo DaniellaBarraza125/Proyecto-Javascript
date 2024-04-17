@@ -47,35 +47,35 @@ let finalScore;
 // console.log(resultsNav, homeNav, quizNav);
 
 const hideViews = (()=>{
-    // console.log("working booetch");
+    console.log("working booetch");
     homeDiv.classList.add("hide")
     questionContainer.classList.add("hide")
     quizDiv.classList.add("hide")
     personalityDiv.classList.add("hide")
     resultsTextDiv.classList.add("hide")
-    graficDiv.classList.add("hide")
+    // graficDiv.classList.add("hide")
 
 })
-hideViews();
+// hideViews();
 
 const showHome =()=>{
     hideViews();
     homeDiv.classList.remove("hide");
-    // console.log("working");
+    console.log("working");
 }
 
 const showQuiz =()=>{
     hideViews();
     questionContainer.classList.remove("hide");
-    // quizDiv.classList.remove("hide")
-    // console.log("working");
+    quizDiv.classList.remove("hide")
+    console.log("working");
 }
 
 const showResultsDiv =()=>{
     hideViews();
     resultsTextDiv.classList.remove("hide");
-    graficDiv.classList.remove("hide")
-    // console.log("working");
+    // graficDiv.classList.remove("hide")
+    console.log("working");
 }
 
 const showPersonalitDiv = ()=>{
