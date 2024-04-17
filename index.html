@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -65,10 +66,29 @@
         
     </div>
 </div>
+<div id="personalityDiv"  class="hide" >
+    <div id="personalityTestContainer"style="display:flex" >
+        
+            <div id="personalityQuestions">Question</div>
+            <div id="personalityAnswerButtons"> answers</div>
+    </div>
+    <div class="personallityControls">
+        <button id="personalityStartBtn" class="">Start</button>
+        <button id="personalityNextBtn" class="hide">Next</button>
+        <button id="resultsPersonalityButton" class="hide">Results</button>
+
+    </div>
+</div>
+
 <div id="resultsDiv" class="hide">
     <div class="anotherContainer">
         <div id="resultsTextDiv">   
 
+        </div>
+        <div class="graficDiv">
+            <div class="graficContainer">
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
 
     </div>
@@ -80,7 +100,8 @@
     </div>
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="main.js" ></script>
+    <script src="./js/main.js" ></script>
+    <script src="./js/personalityQuiz.js"></script>
 
 </body>
 </html>

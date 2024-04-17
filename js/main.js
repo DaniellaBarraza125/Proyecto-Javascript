@@ -18,6 +18,7 @@ const quizDiv = document.getElementById("quizDiv")
 const scoreDiv = document.getElementById("score")
 const resultsDiv = document.getElementById ("resultsDiv")
 const resultsTextDiv = document.getElementById("resultsTextDiv")
+const personalityDiv = document.getElementById("personalityDiv")
 
 // nav
 const homeNav = document.getElementById("homeNav")
@@ -27,6 +28,8 @@ const questionElement = document.getElementById("question");
 const resultsTitle = document.getElementById("resultsTitle")
 const questionImg = document.getElementById("questionPicture")
 
+const personalityQuizNav = document.getElementById("personalityQuizNav")
+
 const inputName = document.getElementById("inputName")
 const inputEmail = document.getElementById("inputEmail")
 const form = document.getElementById("form")
@@ -34,6 +37,7 @@ const form = document.getElementById("form")
 const API = "https://mocki.io/v1/53f21f08-a2a4-413b-bf34-aa11d35f7654";
 
 // variables
+
 let quiz = [];
 let answer = [];
 let score;
@@ -62,6 +66,8 @@ const hideViews = (()=>{
     questionContainer.classList.add("hide")
     quizDiv.classList.add("hide")
     resultsDiv.classList.add("hide")
+    personalityDiv.classList.add("hide")
+
 })
 hideViews();
 
@@ -83,6 +89,11 @@ const showResultsDiv =()=>{
     resultsDiv.classList.remove("hide");
     // console.log("working");
 }
+const showPersonalitDiv = ()=>{
+    hideViews();
+    personalityDiv.classList.remove("hide")
+    }
+    personalityQuizNav.addEventListener("click",showPersonalitDiv)
 
 axios.get(API).then ((res)=> {quiz = res.data
 
@@ -225,6 +236,7 @@ const onSubmit=(e)=>{
 
     console.log(listaUsuarios);
 }
+
 
 form.addEventListener('submit',onSubmit)
 nextButton.addEventListener("click", () => {

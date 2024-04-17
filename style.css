@@ -180,9 +180,59 @@ span {
 #logo{
     width: 70%;
 }
+/* personality quiz */
+/* personality quiz */
+#personalityDiv {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0% 4%;
+    background-color: aliceblue;
+    max-width: 800px;
+    width: 80vw;
+    flex-direction: column;
+}
 
+#personalityTestContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: lightblue; /* Color de fondo para cubrir las preguntas y las respuestas */
+    border-radius: 10px; /* Añade bordes redondeados para suavizar la apariencia */
+}
 
-    
+#personalityQuestions {
+    padding: 20px;
+}
+
+#personalityAnswerButtons {
+    padding: 20px;
+}
+
+.personallityControls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#personalityStartBtn,
+#personalityNextBtn {
+    font-size: 1.2em; /* Ajusta el tamaño del texto de los botones */
+    padding: 10px 20px; /* Ajusta el relleno de los botones */
+    margin: 10px; /* Añade espacio entre los botones */
+    background-color: #78e5f1; /* Color de fondo de los botones */
+    border: none; /* Elimina el borde de los botones */
+    border-radius: 5px; /* Añade bordes redondeados a los botones */
+    cursor: pointer; /* Cambia el cursor al pasar sobre los botones */
+    transition: background-color 0.3s ease; /* Añade transición al cambio de color de fondo */
+}
+
+#personalityStartBtn:hover,
+#personalityNextBtn:hover {
+    background-color: #5bc0de; /* Cambia el color de fondo al pasar sobre los botones */
+}
+
     @media only screen and (max-width: 800px) {
         #question-container{
             background-color: pink;
