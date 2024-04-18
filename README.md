@@ -30,13 +30,13 @@ El proyecto está organizado en varias carpetas y archivos, cada uno con un prop
 
 El principal objetivo de este proyecto era crear una página web con una imagen alegre y un aspecto que evocara la década de los 80. Para lograr esto, se eligió una paleta de colores compuesta por azules y fucsias, que van con el espiritu de la serie y agregan un toque retro y vibrante a la interfaz de usuario.
 
-| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #96f0fa |
+| Example Color | ![#96f0fa](https://via.placeholder.com/10/0a192f?text=+) #96f0fa |
 
-| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #FCFC8B |
+| Example Color | ![#FCFC8B](https://via.placeholder.com/10/f8f8f8?text=+) #FCFC8B |
 
-| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #F4C8ED |
+| Example Color | ![#F4C8ED](https://via.placeholder.com/10/00b48a?text=+) #F4C8ED |
 
-| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #FFB6C1 |
+| Example Color | ![#FFB6C1](https://via.placeholder.com/10/00b48a?text=+) #FFB6C1 |
 
 
 ### Uso y Contribución📃🧮
