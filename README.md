@@ -1,4 +1,5 @@
-## ⚡️⚡️Quiz SPA de Friends con JavaScript⚡️⚡️
+## 📺⚡️⚡️Quiz SPA de Friends con JavaScript⚡️⚡️📺
+
 
 Este proyecto es una Single Page Application (SPA) inspirada en la popular serie de televisión "Friends". La SPA consta de cuatro vistas principales: Home, Quiz, Personality Quiz y Results. La aplicación está diseñada para ofrecer a los usuarios la experiencia de participar en cuestionarios relacionados con la serie y obtener resultados detallados.
 
@@ -30,14 +31,16 @@ El proyecto está organizado en varias carpetas y archivos, cada uno con un prop
 
 El principal objetivo de este proyecto era crear una página web con una imagen alegre y un aspecto que evocara la década de los 80. Para lograr esto, se eligió una paleta de colores compuesta por azules y fucsias, que van con el espiritu de la serie y agregan un toque retro y vibrante a la interfaz de usuario.
 
-| Example Color | ![#96f0fa](https://via.placeholder.com/10/0a192f?text=+) #96f0fa |
+## Paleta de Colores 
 
-| Example Color | ![#FCFC8B](https://via.placeholder.com/10/f8f8f8?text=+) #FCFC8B |
+A continuación se muestra una paleta de colores retro utilizada en el proyecto:
 
-| Example Color | ![#F4C8ED](https://via.placeholder.com/10/00b48a?text=+) #F4C8ED |
-
-| Example Color | ![#FFB6C1](https://via.placeholder.com/10/00b48a?text=+) #FFB6C1 |
-
+| Color         | Código    |
+|---------------|-----------|
+| Azul          | #96f0fa   |
+| Amarillo      | #FCFC8B   |
+| Rosa          | #F4C8ED   |
+| Rosa Claro    | #FFB6C1   |
 
 ### Uso y Contribución📃🧮
 
@@ -51,3 +54,6 @@ Para usar la aplicación, simplemente abra el archivo `index.html` en su navegad
 ### Autor🫀
 
 **@DaniellaBarraza125** ([GitHub](https://github.com/DaniellaBarraza125))
+
+¡Espero que disfrutes explorando la aplicación! 🎉
+
