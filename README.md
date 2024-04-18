@@ -30,6 +30,8 @@ El proyecto está organizado en varias carpetas y archivos, cada uno con un prop
 ### Estilo del Proyecto🫀🌈
 
 El principal objetivo de este proyecto era crear una página web con una imagen alegre y un aspecto que evocara la década de los 80. Para lograr esto, se eligió una paleta de colores compuesta por azules y fucsias, que van con el espiritu de la serie y agregan un toque retro y vibrante a la interfaz de usuario.
+## Responsive 📱💻
+El proyecto se ha desarrollado con un enfoque centrado en la responsividad. Para lograr esto, se han utilizado unidades de medida relativas como vh (viewport height), vw (viewport width) y % (porcentaje), lo que permite que los elementos se escalen proporcionalmente con el tamaño de la ventana del navegador o dispositivo. Esta práctica facilita la adaptabilidad de las diferentes vistas del proyecto, asegurando que el contenido se visualice de manera óptima tanto en pantallas grandes como pequeñas.
 
 ## Paleta de Colores 
 
