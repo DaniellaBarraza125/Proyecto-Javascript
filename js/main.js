@@ -4,32 +4,31 @@ const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const answerButton = document.getElementsByClassName("answerButton");
-const resultsButton = document.getElementById("results-btn")
-const sendButton = document.getElementById("sendButton")
+const resultsButton = document.getElementById("results-btn");
+const sendButton = document.getElementById("sendButton");
 
 // containers
 
 const questionContainerElement = document.getElementById("question-container");
-const questionContainer =document.getElementById("question-container")
+const questionContainer = document.getElementById("question-container");
 
 // divs
-const homeDiv = document.getElementById("homeDiv")
-const quizDiv = document.getElementById("quizDiv")
-const scoreDiv = document.getElementById("score")
-const resultsDiv = document.getElementById ("resultsDiv")
-const resultsTextDiv = document.getElementById("resultsTextDiv")
-const personalityDiv = document.getElementById("personalityDiv")
+const homeDiv = document.getElementById("homeDiv");
+const quizDiv = document.getElementById("quizDiv");
+const scoreDiv = document.getElementById("score");
+const resultsDiv = document.getElementById("resultsDiv");
+const resultsTextDiv = document.getElementById("resultsTextDiv");
+const generalResultsDiv = document.getElementById("generalResultsDiv");
+const personalityDiv = document.getElementById("personalityDiv");
 // nav
-const homeNav = document.getElementById("homeNav")
-const quizNav = document.getElementById("quizNav")
-const resultsNav = document.getElementById("resultsNav")
+const homeNav = document.getElementById("homeNav");
+const quizNav = document.getElementById("quizNav");
+const resultsNav = document.getElementById("resultsNav");
 const questionElement = document.getElementById("question");
-const resultsTitle = document.getElementById("resultsTitle")
-const questionImg = document.getElementById("questionPicture")
+const resultsTitle = document.getElementById("resultsTitle");
+const questionImg = document.getElementById("questionPicture");
 
-const personalityQuizNav = document.getElementById("personalityQuizNav")
-
-
+const personalityQuizNav = document.getElementById("personalityQuizNav");
 
 const API = "https://mocki.io/v1/53f21f08-a2a4-413b-bf34-aa11d35f7654";
 
@@ -40,155 +39,150 @@ let answer = [];
 let score;
 let finalScore;
 
-
-
-
-
 // console.log(resultsNav, homeNav, quizNav);
 
-const hideViews = (()=>{
+const hideViews = () => {
     console.log("working booetch");
-    homeDiv.classList.add("hide")
-    questionContainer.classList.add("hide")
-    quizDiv.classList.add("hide")
-    personalityDiv.classList.add("hide")
-    resultsTextDiv.classList.add("hide")
-    // graficDiv.classList.add("hide")
+    homeDiv.classList.add("hide");
+    questionContainer.classList.add("hide");
+    quizDiv.classList.add("hide");
+    personalityDiv.classList.add("hide");
+    resultsTextDiv.classList.add("hide");
+    graficDiv.classList.add("hide");
+    generalResultsDiv.classList.add("hide");
+};
 
-})
-// hideViews();
-
-const showHome =()=>{
+const showHome = () => {
     hideViews();
     homeDiv.classList.remove("hide");
     console.log("working");
-}
+};
 
-const showQuiz =()=>{
+const showQuiz = () => {
     hideViews();
     questionContainer.classList.remove("hide");
-    quizDiv.classList.remove("hide")
+    quizDiv.classList.remove("hide");
     console.log("working");
-}
+};
 
-const showResultsDiv =()=>{
+const showResultsDiv = () => {
     hideViews();
+    generalResultsDiv.classList.remove("hide");
     resultsTextDiv.classList.remove("hide");
-    // graficDiv.classList.remove("hide")
+    graficDiv.classList.remove("hide");
     console.log("working");
-}
+};
 
-const showPersonalitDiv = ()=>{
+const showPersonalitDiv = () => {
     hideViews();
-    personalityDiv.classList.remove("hide")
-    }
+    personalityDiv.classList.remove("hide");
+};
 
-    personalityQuizNav.addEventListener("click",showPersonalitDiv)
+personalityQuizNav.addEventListener("click", showPersonalitDiv);
 
-axios.get(API).then ((res)=> {quiz = res.data
+axios
+    .get(API)
+    .then((res) => {
+        quiz = res.data;
 
-    quiz.map(quiz => {
-        correctAnswer = quiz.correct_answer
-        incorrectAnswers = quiz.incorrect_answers
-    // console.log(correctAnswer); 
-        
-    });
-    console.log("log en axios=", quiz)
-    // console.log("trayend respuestas=", incorrectAnswers,correctAnswer);;
-    }).catch((err)=>console.error(err))
-
+        quiz.map((quiz) => {
+            correctAnswer = quiz.correct_answer;
+            incorrectAnswers = quiz.incorrect_answers;
+            // console.log(correctAnswer);
+        });
+        console.log("log en axios=", quiz);
+        // console.log("trayend respuestas=", incorrectAnswers,correctAnswer);;
+    })
+    .catch((err) => console.error(err));
 
 let currentQuestionIndex;
-const startGame = (()=>{
-    score = 0
+const startGame = () => {
+    score = 0;
     currentQuestionIndex = 0;
     resultsButton.classList.add("hide");
     startButton.classList.add("hide");
     questionContainerElement.classList.remove("hide");
     setNextQuestion();
-    
-
-})
-const showQuestion = ((question)=>{
+};
+const showQuestion = (question) => {
     showScore();
-    questionElement.innerText= "";
+    questionElement.innerText = "";
     questionElement.innerText = question.question;
     const randomOrder = question.answers.sort(() => Math.random() - 0.5);
     question.answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerHTML = ` value="${answer.value}">`
-    button.innerText =`${answer.answer}`;
-    button.classList.add("answerButton")
-    questionImg.innerHTML= ` <img src="${question.image}" alt="Friends picture" id="image">`
-    if (answer.value) {
-        button.dataset.correct = true;
-}
-    button.addEventListener("click", selectAnswer);
-    answerButtonsElement.appendChild(button);
+        const button = document.createElement("button");
+        button.innerHTML = ` value="${answer.value}">`;
+        button.innerText = `${answer.answer}`;
+        button.classList.add("answerButton");
+        questionImg.innerHTML = ` <img src="${question.image}" alt="Friends picture" id="image">`;
+        if (answer.value) {
+            button.dataset.correct = true;
+        }
+        button.addEventListener("click", selectAnswer);
+        answerButtonsElement.appendChild(button);
     });
-})
+};
 
-
-const resetState =(()=>{
+const resetState = () => {
     nextButton.classList.add("hide");
     answerButtonsElement.innerHTML = "";
-})
+};
 
-const setNextQuestion = (()=>{
+const setNextQuestion = () => {
     resetState();
     showQuestion(quiz[currentQuestionIndex]);
-})
-const setScore  = (button)=>{  
+};
+const setScore = (button) => {
     if (button.dataset.correct == "true") {
-    score ++;
-console.log("score", score);}
-}
+        score++;
+        // console.log("score", score);
+    }
+};
 
-const setStatusClass  = ((element)=>{  
-        if (element.dataset.correct == "true") {
+const setStatusClass = (element) => {
+    if (element.dataset.correct == "true") {
         element.classList.add("correct");
     } else {
         element.classList.add("wrong");
     }
-    });
+};
 
 const selectAnswer = (event) => {
     const selectedButton = event.target;
-    setScore(selectedButton)
+    setScore(selectedButton);
 
     Array.from(answerButtonsElement.children).forEach((button) => {
         setStatusClass(button);
-    })
-        if (quiz.length > currentQuestionIndex + 1) {
+    });
+    if (quiz.length > currentQuestionIndex + 1) {
         nextButton.classList.remove("hide");
-        } else {
-            question.innerHTML = "";
-            questionImg.innerHTML = " ",
-            answerButtonsElement.innerHTML = "",
-            
-        resultsButton.classList.remove("hide")
+    } else {
+        question.innerHTML = "";
+        (questionImg.innerHTML = " "),
+            (answerButtonsElement.innerHTML = ""),
+            resultsButton.classList.remove("hide");
         startButton.innerText = "Restart";
         startButton.classList.remove("hide");
-        }
-        
+    }
 };
+const myBar = document.getElementById("myBar");
 
-const showScore = (()=>{
-        let questionCount = currentQuestionIndex + 1;
-        let totalQuestions = quiz.length;
-        let questionDisplay = questionCount
-        scoreDiv.innerText = `
-    Question = ${questionDisplay}/10`;
-    
-})
+const showScore = () => {
+    let questionCount = currentQuestionIndex + 1;
+    let questionDisplay = questionCount;
+    let progress = questionDisplay * 10 + "%";
+    // console.log(progress);
+
+    myBar.style.width = progress;
+    scoreDiv.innerText = `Question = ${questionDisplay}/10`;
+};
 
 const showResults = () => {
     showResultsDiv();
-    resultsButton.classList.add("hide")
+    graficDiv.classList.add("hide");
 
-    finalScore = score; // Asigna el valor de score a finalScore
-    resultsTextDiv.innerHTML = "<h2>holaaaaa que existo bueno?!</h2>";
-
+    resultsButton.classList.add("hide");
+    finalScore = score;
     switch (true) {
         case finalScore >= 9 && finalScore <= 10:
             console.log("del 0 al 10");
@@ -215,10 +209,10 @@ const showResults = () => {
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++;
     setNextQuestion();
-    });
-    
-resultsButton.addEventListener("click", showResults)
-homeNav.addEventListener("click",showHome)
-quizNav.addEventListener("click",showQuiz)
-resultsNav.addEventListener("click",showResultsDiv)
+});
+
+resultsButton.addEventListener("click", showResults);
+homeNav.addEventListener("click", showHome);
+quizNav.addEventListener("click", showQuiz);
+resultsNav.addEventListener("click", showResultsDiv);
 startButton.addEventListener("click", startGame);

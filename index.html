@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,61 +12,64 @@
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <nav>
         <span id="homeNav">Home</span>
         <span id="quizNav">Quiz</span>
         <span id="personalityQuizNav">Personality quiz</span>
-
         <span id="resultsNav">Results</span>
     </nav>
-<div id="homeDiv" class="hide">
-    <div class="homeDivContainer">
-        <div class="homeText">
-            <div>
-                <img src="./assets/Friends_logo.svg" alt="Friend's logo" id="logo">
-                <p> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil alias. Corrupti nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum voluptatum perspiciatis quos ipsum!</p>
-            </div>
-            <div class="formDiv">
-                <form id="form">
-                    <fieldset>
-                    <label for="name">Nombre:</label>
-                    <input type="text" id="inputName" name="name" >
-                    <br>
-                    <label for="email">Correo:   </label>
-                    <input type="text" id="inputEmail" name="email" >
-                    <br>
-                    <button  id="sendButton" type="submit">Enviar</button>
-                </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="quizDiv" class="hide">
-    <div id="question-container" class="hide">
-        <div id="quizInfoDiv">
-            <div id="score">
-            </div>
-            <h2 id="infoDivTitle">The One with the trivia</h2>
-            <div id="questionPicture">
-            </div>
-            <div id="question"></div>
-            <div id="answer-buttons"></div>
-
-            <div class="controls">
-                <button id="next-btn" class="hide">Next</button>
-                <button id="results-btn" class="hide">Results</button>
-                <button id="start-btn">Start</button>
+    <div id="homeDiv">
+        <div class="homeDivContainer">
+            <div class="homeText">
+                <div>
+                    <img src="./assets/Friends_logo.svg" alt="Friend's logo" id="logo">
+                    <p class="text1"> eres - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil
+                        alias. Corrupti
+                        nam nobis, rem beatae itaque fugit quo molestiae, velit magni eligendi dignissimos ab eum
+                        voluptatum perspiciatis quos ipsum!</p>
+                </div>
+                <div class="formDiv">
+                    <form id="form">
+                        <label>Nombre:</label><br>
+                        <input type="text" id="inputName" name="name">
+                        <br>Correo: </label><br>
+                        <input type="text" id="inputEmail" name="email">
+                        <br>
+                        <button id="sendButton" type="submit">Enviar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-        
+
+    <div id="quizDiv" class="hide">
+        <div id="question-container" class="hide">
+            <div id="quizInfoDiv">
+                <div id="myProgress">
+                    <div id="myBar" style="width: 0;"></div>
+                </div>
+                <div id="score">
+                </div>
+                <h2 id="infoDivTitle">The One with the trivia</h2>
+                <div id="questionPicture">
+                </div>
+                <div id="question"></div>
+                <div id="answer-buttons"></div>
+
+                <div class="controls">
+                    <button id="next-btn" class="hide">Next</button>
+                    <button id="results-btn" class="hide">Results</button>
+                    <button id="start-btn">Start</button>
+                </div>
+            </div>
+        </div>
+
     </div>
-<div id="personalityDiv"  class="hide" >
-    <div id="personalityTestContainer" >
+    <div id="personalityDiv" class="hide">
+        <div id="personalityTestContainer">
             <div id="personalityQuestions"></div>
             <div id="personalityAnswerButtons"> </div>
             <div class="personallityControls">
@@ -73,29 +77,46 @@
                 <button id="personalityNextBtn" class="hide">Next</button>
                 <button id="resultsPersonalityButton" class="hide">Results</button>
             </div>
+        </div>
     </div>
-</div>
+    <div id="generalResultsDiv" class="hide">
+        <div id="resultsTextDiv">
+            <div id="quizresult">
 
-<div id="resultsDiv">
-    <div class="anotherContainer">
-        <div id="resultsTextDiv" class="hide">   
-
+            </div>
         </div>
         <div id="graficDiv" class="hide">
+
             <div class="graficContainer">
                 <canvas id="myChart"></canvas>
             </div>
+            <div id="personalityResult">
+
+            </div>
         </div>
-
     </div>
-</div>
-<footer id="footerDiv" >
-
-</footer>
+    <footer id="footerDiv">
+        <p>A super page made by Dani</p>
+        <a href="https://github.com/DaniellaBarraza125" target="_blank">
+            <img class="logos" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                alt="GitHub Logo">
+        </a>
+        <a href="https://www.instagram.com/daniellabarraza125/" target="_blank">
+            <img class="logos"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
+                alt="Instagram Logo">
+        </a>
+        <a href="mailto:daniellabarraza125@gmal.com">
+            <img class="logos"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/512px-Gmail_icon_%282020%29.svg.png"
+                alt="Email">
+        </a>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./js/main.js" ></script>
+    <script src="./js/main.js"></script>
     <script src="./js/personalityQuiz.js"></script>
     <script src="./js/users.js"></script>
 
 </body>
+
 </html>
