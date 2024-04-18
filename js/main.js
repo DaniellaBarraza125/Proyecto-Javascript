@@ -186,23 +186,31 @@ const showResults = () => {
     switch (true) {
         case finalScore >= 9 && finalScore <= 10:
             console.log("del 0 al 10");
-            resultsTextDiv.innerHTML = `<h2 class=resultTitle>Felicidades, Parece que Te Gusta Tanto Friends como a Monica Limpiar</h2>
-                <p class=resultP>Enhorabuena! Te has ganado el título de maniático de Friends, igualando la dedicación de Monica a la limpieza y el orden. Conoces los episodios tan bien como Ross conoce su sándwich de pavo sobrante. Cada escena, cada línea de diálogo y cada gesto de los amigos te resultan tan familiares como el aroma a café en Central Perk. Ahora que has alcanzado el nivel de maestría en Friends, cuéntanos, ¿cuál es tu momento favorito? ¿Con qué personaje te identificas más y por qué? ¡Estamos ansiosos por escuchar tus historias y celebrar juntos tu amor por esta icónica serie de televisión!</p>`;
+            resultsTextDiv.innerHTML = `<div class=resultQuiz><div class="resultContainer">
+                <h2 class=resultTitle>Felicidades, Parece que Te Gusta Tanto Friends como a Monica Limpiar</h2>
+                <p> Enhorabuena! Te has ganado el título de maniático de Friends, igualando la dedicación de Monica a la limpieza y el orden. Conoces los episodios tan bien como Ross conoce su sándwich de pavo sobrante. Cada escena, cada línea de diálogo y cada gesto de los amigos te resultan tan familiares como el aroma a café en Central Perk. Ahora que has alcanzado el nivel de maestría en Friends, cuéntanos, ¿cuál es tu momento favorito? ¿Con qué personaje te identificas más y por qué? ¡Estamos ansiosos por escuchar tus historias y celebrar juntos tu amor por esta icónica serie de televisión!</p></div>
+                <img class=imgResults src="https://i.pinimg.com/originals/ff/27/e9/ff27e9b825a1520f386164f7674cd88d.gif"></div>`;
             break;
         case finalScore >= 6 && finalScore <= 8:
             console.log("del 6 al 8");
-            resultsTextDiv.innerHTML = `<h2 class=resultTitle>Unagi, Parece que Tienes los Sentidos Despiertos</h2>
-                <p class=resultP>¡Bienvenido al club de los fans de Friends! Seguramente sabes deletrear correctamente 'Boscodictiasaur'. ¡Sí, comienza con M muda! Tu conocimiento sobre la serie es tan profundo como el amor de Joey por la pizza o la obsesión de Monica por la limpieza. Desde los momentos más divertidos hasta los más emotivos, has experimentado todas las emociones junto a Chandler, Monica, Rachel, Ross, Joey y Phoebe. Estás en sintonía con los latidos del corazón de Central Perk y te sientes como en casa en el apartamento de los amigos. Ahora que has demostrado tus habilidades en el mundo de Friends, prepárate para ser reconocido como un verdadero maestro de la serie.</p>`;
+            resultsTextDiv.innerHTML = `<div class=resultQuiz><div class="resultContainer">
+                <h2 class=resultTitle> Unagi, Parece que Tienes los Sentidos Despiertos</h2>
+                <p class=resultP>¡Bienvenido al club de los fans de Friends! Seguramente sabes deletrear correctamente 'Boscodictiasaur'. ¡Sí, comienza con M muda! Tu conocimiento sobre la serie es tan profundo como el amor de Joey por la pizza o la obsesión de Monica por la limpieza. Desde los momentos más divertidos hasta los más emotivos, has experimentado todas las emociones junto a Chandler, Monica, Rachel, Ross, Joey y Phoebe. Estás en sintonía con los latidos del corazón de Central Perk y te sientes como en casa en el apartamento de los amigos. Ahora que has demostrado tus habilidades en el mundo de Friends, prepárate para ser reconocido como un verdadero maestro de la serie.</p></div>
+                </ <img class=imgResults src="https://bpb-us-e1.wpmucdn.com/blogs.gwu.edu/dist/2/1402/files/2018/02/Friends-GIF-3-1co9lya.gif"></div>`;
             break;
         case finalScore >= 3 && finalScore <= 5:
             console.log("del 3 al 5");
-            resultsTextDiv.innerHTML = `<h2 class=resultTitle>¡Parece que Has Comenzado a Ver la Luz</h2>
-                <p class=resultP>Bienvenido a la luz, amigo! Al igual que Chandler aprendiendo a bailar o Phoebe tocando la guitarra, estás descubriendo un nuevo mundo lleno de diversión y aprendizaje. A medida que avanzas en la serie, te encontrarás con momentos tan divertidos como cuando Ross grita '¡Pivot!' mientras intenta mover un sofá. Ahora que has dado los primeros pasos, te recomendamos los episodios con las lecciones más hilarantes y los momentos más icónicos de la serie. Prepárate para reír, llorar y celebrar la amistad como nunca antes.</p>`;
+            resultsTextDiv.innerHTML = `<div class=resultQuiz><div class="resultContainer">
+                <h2 class=resultTitle>¡Parece que Has Comenzado a Ver la Luz</h2>
+                <p class=resultP>Bienvenido a la luz, amigo! Al igual que Chandler aprendiendo a bailar o Phoebe tocando la guitarra, estás descubriendo un nuevo mundo lleno de diversión y aprendizaje. A medida que avanzas en la serie, te encontrarás con momentos tan divertidos como cuando Ross grita '¡Pivot!' mientras intenta mover un sofá. Ahora que has dado los primeros pasos, te recomendamos los episodios con las lecciones más hilarantes y los momentos más icónicos de la serie. Prepárate para reír, llorar y celebrar la amistad como nunca antes.</p></div>
+                <img class=imgResults src="https://i.pinimg.com/originals/b2/6d/94/b26d94f3fd26b56e663612348ae6921b.gif" alt="Phoebe screaming"></div>`;
             break;
         default:
             console.log("vale");
-            resultsTextDiv.innerHTML = `<h2 class=resultTitle >Necesitas Urgentemente Ver Friends</h2>
-                <p class=resultP>Eres un verdadero novato en el mundo de Friends, tan nuevo como Joey en un juego de palabras. Pero no te preocupes, estamos aquí para guiarte en este viaje inolvidable. Sabes tanto de Friends como Phoebe de sueco o Rachel sobre capitales europeas, pero eso está a punto de cambiar. Prepárate para sumergirte en un mundo donde las referencias a Unagi y al sándwich de Ross son tan comunes como los cafés en Central Perk. Como recompensa por tu valentía al aventurarte en esta serie, te ofrecemos un masaje de Monica. Aunque, si conocieras a Monica, sabrías que no es realmente un premio, ¡sino más bien un castigo cómico! Así que, ¿estás listo para unirte a nosotros en este viaje?</p>`;
+            resultsTextDiv.innerHTML = `<div class=resultQuiz><div class="resultContainer">
+                <h2 class=resultTitle >Necesitas Urgentemente Ver Friends</h2>
+                <p class=resultP>Eres un verdadero novato en el mundo de Friends, tan nuevo como Joey en un juego de palabras. Pero no te preocupes, estamos aquí para guiarte en este viaje inolvidable. Sabes tanto de Friends como Phoebe de sueco o Rachel sobre capitales europeas, pero eso está a punto de cambiar. Prepárate para sumergirte en un mundo donde las referencias a Unagi y al sándwich de Ross son tan comunes como los cafés en Central Perk. Como recompensa por tu valentía al aventurarte en esta serie, te ofrecemos un masaje de Monica. Aunque, si conocieras a Monica, sabrías que no es realmente un premio, ¡sino más bien un castigo cómico! Así que, ¿estás listo para unirte a nosotros en este viaje?</p></div>
+                <img class=imgResults src="https://i.makeagif.com/media/4-01-2016/z05-pi.gif" alt="Phoebe screaming"></div>`;
     }
 };
 

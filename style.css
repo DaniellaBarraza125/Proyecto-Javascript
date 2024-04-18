@@ -6,42 +6,8 @@
 }
 
 :root {
-    --navFootColor: #78e5f1;
+    --navFootColor: #96f0fa;
     --divBg: white;
-}
-
-/* Minimenu */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.listResults {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.listResults a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.listResults a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .listResults {
-    display: block;
-}
-
-.dropdown:hover #resultsNav {
-    background-color: #3e8e41;
 }
 
 body {
@@ -88,10 +54,26 @@ body {
 #logo {
     width: 90%;
 }
-
-#resultsTextDiv {
+.imgResults {
+    padding: 2%;
+}
+.resultTitle {
+    display: block;
+}
+.resultQuiz {
     background-color: var(--divBg);
     width: 90%;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5%;
+}
+.resultP {
+    text-align: justify;
+}
+#resultsTextDiv {
     border-radius: 10px;
     margin-top: 5%;
 }
@@ -121,6 +103,10 @@ body {
     background-color: var(--divBg);
     border-radius: 10px;
 }
+#personalityQuestions {
+    font-size: 25px;
+    padding: 2%;
+}
 
 #personalityAnswerButtons {
     display: flex;
@@ -141,15 +127,14 @@ button {
 }
 
 #graficDiv {
-    width: 80vw;
     border-radius: 10px;
     background-color: var(--divBg);
-    margin-top: 5%;
+    margin: 5%;
 }
 
 button:hover {
-    background-color: lightpink;
-    box-shadow: 5px 5px yellow;
+    background-color: rgb(255, 182, 193);
+    box-shadow: 5px 5px rgb(252, 252, 139);
 }
 
 .hide {
@@ -159,6 +144,9 @@ button:hover {
 .controls {
     display: flex;
     justify-content: center;
+}
+.friendsResults {
+    display: flex;
 }
 
 .correct {
@@ -173,12 +161,13 @@ nav {
     background-color: var(--navFootColor);
     width: 100%;
     height: 10vh;
-    font-weight: 400;
-    padding-top: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 2%;
 }
 
 span {
-    padding: 2%;
+    padding: 3%;
 }
 .logos {
     margin: 10px 10px 15px;
@@ -243,10 +232,6 @@ span {
     display: flex;
     justify-content: center;
     margin: 10% 20%;
-}
-
-#resultsTitle {
-    margin: 3%;
 }
 
 #resultText {
