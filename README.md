@@ -32,7 +32,7 @@ El principal objetivo de este proyecto era crear una página web con una imagen 
 
 | Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #78e5f1 |
 
-| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #FFFF00 |
+| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) rgb(252, 252, 139) |
 
 | Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #F4C8ED |
 
