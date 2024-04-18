@@ -1,10 +1,9 @@
 const form = document.getElementById("form");
+const nameInput = document.getElementById("inputName");
+const emailInput = document.getElementById("inputEmail");
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    const nameInput = document.getElementById("inputName");
-    const emailInput = document.getElementById("inputEmail");
 
     const name = nameInput.value;
     const email = emailInput.value;

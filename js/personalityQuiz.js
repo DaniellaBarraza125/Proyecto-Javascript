@@ -243,6 +243,7 @@ const showPersonalityResultsDiv = () => {
 
     // console.log("working");
 };
+
 startPersonalityButton.addEventListener("click", startPersonalityGame);
 
 resultsPersonalityButton.addEventListener("click", showPersonalityResultsDiv);
