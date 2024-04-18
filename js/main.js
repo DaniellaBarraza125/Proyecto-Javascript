@@ -109,7 +109,7 @@ const showQuestion = (question) => {
     questionElement.innerText = "";
     questionElement.innerText = question.question;
     const randomOrder = question.answers.sort(() => Math.random() - 0.5);
-    question.answers.forEach((answer) => {
+    randomOrder.forEach((answer) => {
         const button = document.createElement("button");
         button.innerHTML = ` value="${answer.value}">`;
         button.innerText = `${answer.answer}`;
@@ -135,7 +135,7 @@ const setNextQuestion = () => {
 const setScore = (button) => {
     if (button.dataset.correct == "true") {
         score++;
-        // console.log("score", score);
+        console.log("score", score);
     }
 };
 
@@ -164,17 +164,6 @@ const selectAnswer = (event) => {
         startButton.innerText = "Restart";
         startButton.classList.remove("hide");
     }
-};
-const myBar = document.getElementById("myBar");
-
-const showScore = () => {
-    let questionCount = currentQuestionIndex + 1;
-    let questionDisplay = questionCount;
-    let progress = questionDisplay * 10 + "%";
-    // console.log(progress);
-
-    myBar.style.width = progress;
-    scoreDiv.innerText = `Question = ${questionDisplay}/10`;
 };
 
 const showResults = () => {
@@ -212,6 +201,17 @@ const showResults = () => {
                 <p class=resultP>Eres un verdadero novato en el mundo de Friends, tan nuevo como Joey en un juego de palabras. Pero no te preocupes, estamos aquí para guiarte en este viaje inolvidable. Sabes tanto de Friends como Phoebe de sueco o Rachel sobre capitales europeas, pero eso está a punto de cambiar. Prepárate para sumergirte en un mundo donde las referencias a Unagi y al sándwich de Ross son tan comunes como los cafés en Central Perk. Como recompensa por tu valentía al aventurarte en esta serie, te ofrecemos un masaje de Monica. Aunque, si conocieras a Monica, sabrías que no es realmente un premio, ¡sino más bien un castigo cómico! Así que, ¿estás listo para unirte a nosotros en este viaje?</p></div>
                 <img class=imgResults src="https://i.makeagif.com/media/4-01-2016/z05-pi.gif" alt="Phoebe screaming"></div>`;
     }
+};
+const myBar = document.getElementById("myBar");
+
+const showScore = () => {
+    let questionCount = currentQuestionIndex + 1;
+    let questionDisplay = questionCount;
+    let progress = questionDisplay * 10 + "%";
+    // console.log(progress);
+
+    myBar.style.width = progress;
+    scoreDiv.innerText = `Question = ${questionDisplay}/10`;
 };
 
 nextButton.addEventListener("click", () => {

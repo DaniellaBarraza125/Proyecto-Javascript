@@ -323,7 +323,6 @@ span {
     transition: background-color 0.3s ease;
 }
 #resultsPersonalityButton {
-    width: 500px;
     vertical-align: middle;
     font-size: 1.2em;
     margin: 10px 20px 20px 20px;

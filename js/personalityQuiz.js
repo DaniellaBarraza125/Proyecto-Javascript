@@ -210,7 +210,7 @@ const graficarPuntajes = () => {
         labels: labels,
         datasets: [
             {
-                label: "Pho",
+                label: "Friends stats",
                 backgroundColor: "rgb(255, 99, 132)",
                 borderColor: "rgb(255, 99, 132)",
                 data: [phoebe, ross, rachel, chandler, monica, joey],
@@ -221,7 +221,9 @@ const graficarPuntajes = () => {
     const config = {
         type: "radar",
         data: data,
-        options: {},
+        options: {
+            responsive: true,
+        },
     };
 
     const canvas = document.createElement("canvas");
