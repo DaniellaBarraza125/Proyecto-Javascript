@@ -42,7 +42,7 @@ let finalScore;
 // console.log(resultsNav, homeNav, quizNav);
 
 const hideViews = () => {
-    console.log("working booetch");
+    // console.log("working booetch");
     homeDiv.classList.add("hide");
     questionContainer.classList.add("hide");
     quizDiv.classList.add("hide");
@@ -90,7 +90,7 @@ axios
             incorrectAnswers = quiz.incorrect_answers;
             // console.log(correctAnswer);
         });
-        console.log("log en axios=", quiz);
+        // console.log("log en axios=", quiz);
         // console.log("trayend respuestas=", incorrectAnswers,correctAnswer);;
     })
     .catch((err) => console.error(err));

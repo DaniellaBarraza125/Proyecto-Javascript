@@ -237,12 +237,10 @@ const resetChart = () => {
     }
 };
 const showPersonalityResultsDiv = () => {
-    showResults();
     setCharater();
+    showResultsDiv();
     resultsPersonalityButton.classList.add("hide");
 
-    resultsTextDiv.classList.add("hide");
-    graficDiv.classList.remove("hide");
     // console.log("working");
 };
 startPersonalityButton.addEventListener("click", startPersonalityGame);
