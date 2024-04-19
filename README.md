@@ -47,10 +47,8 @@ A continuación se muestra una paleta de colores retro utilizada en el proyecto:
 
 ## Ejemplos
 
-<img src="./assets/Screenshot 2024-04-19 084723.png" alt="screenshot" >
-<img src="./assets/Screenshot 2024-04-19 084802.png" alt="screenshot">
-<img src="./assets/Screenshot 2024-04-19 084840.png" alt="screenshot">
-<img src="./assets/Screenshot 2024-04-19 084905.png" alt="screenshot">
+<img src="./assets/Screenshot 2024-04-19 084840.png" width="400px" alt="screenshot" ><img src="./assets/Screenshot 2024-04-19 084802.pngwidth="250px"" alt="screenshot">
+<img src="./assets/Screenshot 2024-04-19 084905.png" width="400px" alt="screenshot"><img src="./assets/Screenshot 2024-04-19 084723.png width="250px"" alt="screenshot" >
 
 ### Uso y Contribución📃🧮
 
