@@ -169,7 +169,6 @@ const selectAnswer = (event) => {
 const showResults = () => {
     showResultsDiv();
     graficDiv.classList.add("hide");
-
     resultsButton.classList.add("hide");
     finalScore = score;
     switch (true) {
